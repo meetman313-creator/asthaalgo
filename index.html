@@ -10,104 +10,152 @@
 :root{--bg:#07080f;--bg2:#0e0f1a;--card:#111220;--accent:#7c6fff;--accent2:#5a4fe0;--green:#00e5a0;--text:#dde0f0;--muted:#6b6e8a;--border:#ffffff12;--border2:#ffffff20;}
 body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(7,8,15,0.96);backdrop-filter:blur(16px);z-index:100}
-.logo{font-size:1.25rem;font-weight:800;letter-spacing:-0.5px}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(7,8,15,0.97);backdrop-filter:blur(16px);z-index:200}
+.logo{font-size:1.2rem;font-weight:800;letter-spacing:-0.5px}
 .logo .a{color:var(--accent)}.logo .b{color:var(--text)}
 .nav-links{display:flex;gap:2rem;font-size:0.875rem;color:var(--muted)}
 .nav-links a:hover{color:var(--text)}
-.nav-cta{background:var(--accent);color:#fff;padding:0.5rem 1.3rem;border-radius:6px;font-weight:700;font-size:0.85rem}
+.nav-cta{background:var(--accent);color:#fff;padding:0.5rem 1.2rem;border-radius:6px;font-weight:700;font-size:0.85rem;white-space:nowrap}
 .nav-cta:hover{background:var(--accent2)}
-.hero{padding:6rem 2.5rem 3rem;max-width:900px;margin:0 auto;text-align:center;position:relative}
-.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(124,111,255,0.07) 0%,transparent 65%);pointer-events:none;z-index:0}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;background:rgba(7,8,15,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:199;padding:1.5rem;flex-direction:column;gap:1rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1rem;color:var(--muted);padding:0.5rem 0;border-bottom:1px solid var(--border)}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu .m-cta{background:var(--accent);color:#fff;padding:0.75rem;border-radius:8px;font-weight:700;text-align:center;border:none;margin-top:0.5rem}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+}
+
+/* HERO */
+.hero{padding:4rem 1.5rem 3rem;max-width:900px;margin:0 auto;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:100%;height:400px;background:radial-gradient(ellipse,rgba(124,111,255,0.07) 0%,transparent 65%);pointer-events:none;z-index:0}
 .hero>*{position:relative;z-index:1}
-.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid var(--border2);color:var(--muted);padding:0.35rem 1rem;border-radius:100px;font-size:0.78rem;font-family:'JetBrains Mono',monospace;margin-bottom:2rem;letter-spacing:0.5px}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid var(--border2);color:var(--muted);padding:0.35rem 1rem;border-radius:100px;font-size:0.75rem;font-family:'JetBrains Mono',monospace;margin-bottom:1.5rem;letter-spacing:0.5px}
 .hero-tag span{color:var(--green)}
-h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.08;letter-spacing:-2px;margin-bottom:0.75rem}
+h1{font-size:clamp(2.6rem,10vw,4.2rem);font-weight:800;line-height:1.08;letter-spacing:-2px;margin-bottom:0.75rem}
 h1 .you{color:var(--muted)}h1 .code{color:var(--accent)}
-.tagline-sub{font-size:0.82rem;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:1px;margin-bottom:1.5rem}
-.hero-sub{font-size:1.05rem;color:var(--muted);max-width:560px;margin:0 auto 2.5rem;line-height:1.7}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem}
-.btn-p{background:var(--accent);color:#fff;padding:0.8rem 2rem;border-radius:8px;font-weight:700;font-size:0.9rem;border:none;cursor:pointer}
+.tagline-sub{font-size:0.78rem;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:1px;margin-bottom:1.25rem}
+.hero-sub{font-size:0.95rem;color:var(--muted);max-width:560px;margin:0 auto 2rem;line-height:1.7}
+.hero-btns{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-p{background:var(--accent);color:#fff;padding:0.8rem 1.5rem;border-radius:8px;font-weight:700;font-size:0.875rem;border:none;cursor:pointer;width:100%;max-width:260px}
 .btn-p:hover{background:var(--accent2)}
-.btn-s{background:transparent;color:var(--text);padding:0.8rem 2rem;border-radius:8px;font-weight:600;font-size:0.9rem;border:1px solid var(--border2);cursor:pointer}
+.btn-s{background:transparent;color:var(--text);padding:0.8rem 1.5rem;border-radius:8px;font-weight:600;font-size:0.875rem;border:1px solid var(--border2);cursor:pointer;width:100%;max-width:260px}
 .btn-s:hover{border-color:var(--accent);color:var(--accent)}
-.code-block{background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:1.2rem 1.5rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.8;max-width:620px;margin:0 auto;position:relative}
+.code-block{background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:1.2rem 1.2rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.72rem;line-height:1.8;margin:0 auto;position:relative;overflow-x:auto}
 .code-block::before{content:'● ● ●';position:absolute;top:0.8rem;left:1rem;font-size:0.6rem;color:var(--muted);letter-spacing:4px}
-.code-block .line{margin-top:0.2rem}
+.code-block .line{margin-top:0.2rem;white-space:nowrap}
 .c-purple{color:#b393f5}.c-green{color:#7fffbf}.c-yellow{color:#ffe082}.c-muted{color:#5a5d7a}.c-white{color:#dde0f0}.c-blue{color:#79b8ff}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:4rem}
-.stat{background:var(--bg);padding:1.8rem 1rem;text-align:center}
-.stat-n{font-size:2rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:var(--accent);letter-spacing:-1px}
-.stat-l{font-size:0.78rem;color:var(--muted);margin-top:0.2rem}
-.sec{padding:5rem 2.5rem;max-width:1100px;margin:0 auto}
-.sec-label{font-size:0.72rem;color:var(--accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;font-family:'JetBrains Mono',monospace}
-.sec-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.5px;margin-bottom:0.75rem}
-.sec-sub{color:var(--muted);font-size:0.95rem;max-width:500px}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:3rem}
-.svc{background:var(--card);padding:2rem 1.75rem;transition:background 0.2s}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:3rem}
+@media(min-width:600px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--bg);padding:1.5rem 1rem;text-align:center}
+.stat-n{font-size:1.7rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:var(--accent);letter-spacing:-1px}
+.stat-l{font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
+
+/* SECTIONS */
+.sec{padding:3.5rem 1.5rem;max-width:1100px;margin:0 auto}
+@media(min-width:768px){.sec{padding:5rem 2.5rem}}
+.sec-label{font-size:0.7rem;color:var(--accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;font-family:'JetBrains Mono',monospace}
+.sec-title{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:800;letter-spacing:-0.5px;margin-bottom:0.75rem}
+.sec-sub{color:var(--muted);font-size:0.9rem;max-width:500px}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:2rem}
+@media(min-width:600px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+.svc{background:var(--card);padding:1.5rem;transition:background 0.2s}
 .svc:hover{background:#161728}
-.svc-num{font-size:0.72rem;color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:500;margin-bottom:1rem;letter-spacing:1px}
-.svc-title{font-size:1.05rem;font-weight:700;margin-bottom:0.6rem}
-.svc-desc{color:var(--muted);font-size:0.875rem;line-height:1.65}
-.svc-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.2rem}
-.tag{font-size:0.72rem;padding:0.25rem 0.65rem;border-radius:4px;background:rgba(124,111,255,0.1);color:var(--accent);font-family:'JetBrains Mono',monospace;border:1px solid rgba(124,111,255,0.2)}
-.process-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2.5rem}
+.svc-num{font-size:0.7rem;color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:500;margin-bottom:0.75rem;letter-spacing:1px}
+.svc-title{font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+.svc-desc{color:var(--muted);font-size:0.85rem;line-height:1.65}
+.svc-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
+.tag{font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:4px;background:rgba(124,111,255,0.1);color:var(--accent);font-family:'JetBrains Mono',monospace;border:1px solid rgba(124,111,255,0.2)}
+
+/* PROCESS */
+.process-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3.5rem 1.5rem}
+@media(min-width:768px){.process-wrap{padding:5rem 2.5rem}}
 .process-inner{max-width:1100px;margin:0 auto}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0;margin-top:3rem;position:relative}
-.steps::before{content:'';position:absolute;top:28px;left:5%;right:5%;height:1px;background:var(--border2);z-index:0}
-.step{padding:0 1.5rem 0 0;position:relative;z-index:1}
-.step-dot{width:56px;height:56px;background:var(--card);border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700;margin-bottom:1.2rem}
-.step-title{font-weight:700;font-size:0.95rem;margin-bottom:0.4rem}
-.step-desc{color:var(--muted);font-size:0.83rem;line-height:1.6}
-.tech-grid{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:2rem}
-.tech{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1.1rem;font-size:0.83rem;font-family:'JetBrains Mono',monospace;color:var(--muted);display:flex;align-items:center;gap:0.5rem}
-.tech:hover{border-color:var(--border2);color:var(--text)}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+@media(min-width:768px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{padding:1.25rem;background:var(--card);border:1px solid var(--border);border-radius:12px}
+.step-dot{width:48px;height:48px;background:rgba(124,111,255,0.1);border:1px solid rgba(124,111,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700;margin-bottom:1rem}
+.step-title{font-weight:700;font-size:0.9rem;margin-bottom:0.35rem}
+.step-desc{color:var(--muted);font-size:0.8rem;line-height:1.6}
+
+/* TECH */
+.tech-grid{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem}
+.tech{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:0.55rem 1rem;font-size:0.8rem;font-family:'JetBrains Mono',monospace;color:var(--muted);display:flex;align-items:center;gap:0.5rem}
 .tech .tdot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
-.reviews-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 0}
-.reviews-header{padding:0 2.5rem;max-width:1100px;margin:0 auto 2.5rem}
+
+/* REVIEWS */
+.reviews-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3.5rem 0}
+@media(min-width:768px){.reviews-wrap{padding:5rem 0}}
+.reviews-header{padding:0 1.5rem;max-width:1100px;margin:0 auto 2rem}
+@media(min-width:768px){.reviews-header{padding:0 2.5rem}}
 .reviews-nav{display:flex;align-items:center;justify-content:space-between;margin-top:0.5rem}
 .reviews-nav-btns{display:flex;gap:0.5rem}
-.nav-btn{width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--border2);color:var(--text);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,background 0.2s}
-.nav-btn:hover{border-color:var(--accent);background:#1a1b2e;color:var(--accent)}
-.scroll-track{overflow-x:auto;padding:0.5rem 2.5rem 1.5rem;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;cursor:grab}
+.nav-btn{width:38px;height:38px;border-radius:50%;background:var(--card);border:1px solid var(--border2);color:var(--text);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.nav-btn:hover{border-color:var(--accent);color:var(--accent)}
+.scroll-track{overflow-x:auto;padding:0.5rem 1.5rem 1.5rem;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;-webkit-overflow-scrolling:touch}
+@media(min-width:768px){.scroll-track{padding:0.5rem 2.5rem 1.5rem}}
 .scroll-track::-webkit-scrollbar{display:none}
-.scroll-track:active{cursor:grabbing}
-.scroll-inner{display:flex;gap:1rem;width:max-content}
-.review-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.75rem;width:300px;flex-shrink:0;transition:border-color 0.2s,transform 0.2s}
-.review-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-.stars{color:var(--accent);font-size:0.85rem;letter-spacing:2px;margin-bottom:1rem}
-.review-text{color:var(--muted);font-size:0.875rem;line-height:1.7;margin-bottom:1.25rem;font-style:italic}
-.review-author{display:flex;align-items:center;gap:0.75rem}
-.avatar{width:38px;height:38px;border-radius:50%;background:rgba(124,111,255,0.15);border:1px solid rgba(124,111,255,0.25);display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--accent);flex-shrink:0;font-family:'JetBrains Mono',monospace}
-.author-name{font-weight:700;font-size:0.9rem}
-.author-role{font-size:0.75rem;color:var(--muted)}
-.scroll-dots{display:flex;gap:6px;justify-content:center;padding:0 2.5rem;margin-top:0.5rem}
-.sdot{width:6px;height:6px;border-radius:50%;background:var(--border2);transition:background 0.2s,width 0.2s;cursor:pointer}
-.sdot.active{background:var(--accent);width:20px;border-radius:3px}
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:start;margin-top:3rem}
-@media(max-width:640px){.contact-grid{grid-template-columns:1fr}.steps::before{display:none}}
-.contact-left h3{font-size:1.4rem;font-weight:700;margin-bottom:0.75rem}
-.contact-left p{color:var(--muted);font-size:0.9rem;margin-bottom:2rem;line-height:1.7}
-.contact-rows{display:flex;flex-direction:column;gap:0.75rem}
-.crow{display:flex;align-items:center;gap:1rem;padding:0.9rem 1.1rem;background:var(--card);border:1px solid var(--border);border-radius:10px}
-.crow-icon{width:36px;height:36px;background:rgba(124,111,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.crow-label{font-size:0.72rem;color:var(--muted);margin-bottom:2px}
-.crow-val{font-size:0.88rem;font-weight:600}
-.form{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;display:flex;flex-direction:column;gap:1rem}
-.form label{font-size:0.78rem;color:var(--muted);display:block;margin-bottom:0.3rem;font-family:'JetBrains Mono',monospace}
-.form input,.form textarea,.form select{background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:0.75rem 1rem;color:var(--text);font-size:0.88rem;font-family:'Syne',sans-serif;outline:none;width:100%;transition:border-color 0.2s}
+.scroll-inner{display:flex;gap:0.75rem;width:max-content}
+.review-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.4rem;width:260px;flex-shrink:0;transition:border-color 0.2s,transform 0.2s}
+@media(min-width:768px){.review-card{width:300px}}
+.review-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.stars{color:var(--accent);font-size:0.8rem;letter-spacing:2px;margin-bottom:0.75rem}
+.review-text{color:var(--muted);font-size:0.82rem;line-height:1.7;margin-bottom:1rem;font-style:italic}
+.review-author{display:flex;align-items:center;gap:0.6rem}
+.avatar{width:34px;height:34px;border-radius:50%;background:rgba(124,111,255,0.15);border:1px solid rgba(124,111,255,0.25);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:var(--accent);flex-shrink:0;font-family:'JetBrains Mono',monospace}
+.author-name{font-weight:700;font-size:0.85rem}
+.author-role{font-size:0.72rem;color:var(--muted)}
+.scroll-dots{display:flex;gap:5px;justify-content:center;padding:0 1.5rem;margin-top:0.5rem}
+.sdot{width:6px;height:6px;border-radius:50%;background:var(--border2);transition:all 0.2s;cursor:pointer}
+.sdot.active{background:var(--accent);width:18px;border-radius:3px}
+
+/* CONTACT */
+.contact-section{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 1.5rem}
+@media(min-width:768px){.contact-section{padding:5rem 2.5rem}}
+.contact-inner{max-width:1100px;margin:0 auto}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:2rem;margin-top:2rem}
+@media(min-width:768px){.contact-grid{grid-template-columns:1fr 1.2fr;gap:3rem}}
+.contact-left h3{font-size:1.3rem;font-weight:700;margin-bottom:0.75rem}
+.contact-left p{color:var(--muted);font-size:0.875rem;margin-bottom:1.5rem;line-height:1.7}
+.contact-rows{display:flex;flex-direction:column;gap:0.6rem}
+.crow{display:flex;align-items:center;gap:0.75rem;padding:0.8rem 1rem;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.crow-icon{width:34px;height:34px;background:rgba(124,111,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0}
+.crow-label{font-size:0.7rem;color:var(--muted);margin-bottom:1px}
+.crow-val{font-size:0.85rem;font-weight:600}
+.form{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;gap:0.9rem}
+.form label{font-size:0.75rem;color:var(--muted);display:block;margin-bottom:0.25rem;font-family:'JetBrains Mono',monospace}
+.form input,.form textarea,.form select{background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:0.7rem 0.9rem;color:var(--text);font-size:0.875rem;font-family:'Syne',sans-serif;outline:none;width:100%;transition:border-color 0.2s;-webkit-appearance:none}
 .form input:focus,.form textarea:focus,.form select:focus{border-color:var(--accent)}
-.form textarea{min-height:110px;resize:vertical}
+.form textarea{min-height:100px;resize:vertical}
 .form select option{background:var(--bg2)}
 .fsub{background:var(--accent);color:#fff;border:none;padding:0.85rem;border-radius:8px;font-weight:700;font-size:0.9rem;cursor:pointer;width:100%;font-family:'Syne',sans-serif}
 .fsub:hover{background:var(--accent2)}
-.wa{position:fixed;bottom:1.5rem;right:1.5rem;background:#25d366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;z-index:999;text-decoration:none}
-footer{border-top:1px solid var(--border);padding:2rem 2.5rem;text-align:center;color:var(--muted);font-size:0.82rem}
+
+/* WA */
+.wa{position:fixed;bottom:1.25rem;right:1.25rem;background:#25d366;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;z-index:999;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,0.35)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:1.75rem 1.5rem;text-align:center;color:var(--muted);font-size:0.8rem}
 footer strong{color:var(--accent)}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="logo"><span class="a">Astha</span><span class="b">Algo</span></div>
   <div class="nav-links">
@@ -117,8 +165,21 @@ footer strong{color:var(--accent)}
     <a href="#contact">Contact</a>
   </div>
   <a href="#contact" class="nav-cta">Hire Us</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#process" onclick="closeMenu()">Process</a>
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#contact" class="m-cta" onclick="closeMenu()">Hire Us →</a>
+</div>
+
+<!-- HERO -->
 <div class="hero">
   <div class="hero-tag"><span>▶</span> Algo Development Studio</div>
   <h1><span class="you">You </span><span>Think </span><span class="code">It,</span><br><span class="you">We </span><span>Code </span><span class="code">It.</span></h1>
@@ -131,7 +192,7 @@ footer strong{color:var(--accent)}
   <div class="code-block">
     <div style="height:1.2rem"></div>
     <div class="line"><span class="c-muted">// you think it...</span></div>
-    <div class="line"><span class="c-purple">if</span> <span class="c-white">(EMA_9 </span><span class="c-yellow">&gt;</span><span class="c-white"> EMA_21 </span><span class="c-yellow">&amp;&amp;</span><span class="c-white"> RSI </span><span class="c-yellow">&lt;</span><span class="c-white"> 60) {</span></div>
+    <div class="line"><span class="c-purple">if</span> <span class="c-white">(EMA_9 &gt; EMA_21 &amp;&amp; RSI &lt; 60) {</span></div>
     <div class="line">&nbsp;&nbsp;<span class="c-green">BUY</span><span class="c-white">(NIFTY, sl=</span><span class="c-blue">50</span><span class="c-white">, target=</span><span class="c-blue">100</span><span class="c-white">)</span></div>
     <div class="line"><span class="c-white">}</span></div>
     <div class="line">&nbsp;</div>
@@ -140,6 +201,7 @@ footer strong{color:var(--accent)}
   </div>
 </div>
 
+<!-- STATS -->
 <div class="stats">
   <div class="stat"><div class="stat-n">50+</div><div class="stat-l">Algos Delivered</div></div>
   <div class="stat"><div class="stat-n">MQL5</div><div class="stat-l">Primary Language</div></div>
@@ -147,6 +209,7 @@ footer strong{color:var(--accent)}
   <div class="stat"><div class="stat-n">NSE/BSE</div><div class="stat-l">Market Focus</div></div>
 </div>
 
+<!-- SERVICES -->
 <div class="sec" id="services">
   <div class="sec-label">What We Build</div>
   <div class="sec-title">Algo Development Services</div>
@@ -159,6 +222,7 @@ footer strong{color:var(--accent)}
   </div>
 </div>
 
+<!-- PROCESS -->
 <div class="process-wrap" id="process">
   <div class="process-inner">
     <div class="sec-label">How We Work</div>
@@ -173,6 +237,7 @@ footer strong{color:var(--accent)}
   </div>
 </div>
 
+<!-- TECH -->
 <div class="sec" id="tech">
   <div class="sec-label">Technologies</div>
   <div class="sec-title">Our Tech Stack</div>
@@ -185,6 +250,7 @@ footer strong{color:var(--accent)}
   </div>
 </div>
 
+<!-- REVIEWS -->
 <div class="reviews-wrap" id="reviews">
   <div class="reviews-header">
     <div class="sec-label">Client Reviews</div>
@@ -200,29 +266,30 @@ footer strong{color:var(--accent)}
     <div class="scroll-inner">
       <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"I had a manual scalping strategy on BANKNIFTY. Astha Algo converted it into a fully automated EA within days. Works exactly as I imagined."</p><div class="review-author"><div class="avatar">PA</div><div><div class="author-name">Parth A.</div><div class="author-role">Options Trader</div></div></div></div>
       <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Very professional work. They understood my EMA crossover logic perfectly and delivered clean, well-documented MQL5 code. Highly recommend."</p><div class="review-author"><div class="avatar">HA</div><div><div class="author-name">Harsh A.</div><div class="author-role">Swing Trader</div></div></div></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Got my TradingView Pine Script converted to MT5 EA. The transition was smooth and they added proper risk management on top. Solid team."</p><div class="review-author"><div class="avatar">SU</div><div><div class="author-name">Sunil U.</div><div class="author-role">Intraday Trader</div></div></div></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"I was skeptical at first but the demo results matched my manual trading exactly. Astha Algo really does turn your thinking into working code."</p><div class="review-author"><div class="avatar">SH</div><div><div class="author-name">Shreya H.</div><div class="author-role">Positional Trader</div></div></div></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Quick delivery, great communication, clean code. They built a custom NIFTY indicator with multi-timeframe alerts. Exactly what I needed."</p><div class="review-author"><div class="avatar">AR</div><div><div class="author-name">Archit R.</div><div class="author-role">Technical Analyst</div></div></div></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"My old MT4 EA was broken. They not only fixed it but also migrated it to MT5 and optimized the logic. Runs perfectly now."</p><div class="review-author"><div class="avatar">VI</div><div><div class="author-name">Viren I.</div><div class="author-role">Algo Trader</div></div></div></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Best decision I made was automating with Astha Algo. No more sitting in front of screens all day. The bot executes better than I did manually."</p><div class="review-author"><div class="avatar">DH</div><div><div class="author-name">Dhruv H.</div><div class="author-role">Full-time Trader</div></div></div></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"They built a Telegram alert system integrated with my MT5 EA. Now I get instant notifications on every trade entry and exit. Very useful."</p><div class="review-author"><div class="avatar">NI</div><div><div class="author-name">Nitya I.</div><div class="author-role">Part-time Trader</div></div></div></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Explained my RSI divergence strategy over WhatsApp and they coded it perfectly. The backtesting results were very encouraging. Great work."</p><div class="review-author"><div class="avatar">VA</div><div><div class="author-name">Varun A.</div><div class="author-role">Derivatives Trader</div></div></div></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Very patient team. I kept changing requirements and they handled everything without complaint. Final EA is exactly what I wanted."</p><div class="review-author"><div class="avatar">JA</div><div><div class="author-name">Jayesh A.</div><div class="author-role">Equity Trader</div></div></div></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Fast delivery and honest pricing. No hidden charges. They quoted upfront and delivered on time. My breakout strategy is now fully automated."</p><div class="review-author"><div class="avatar">RU</div><div><div class="author-name">Rutvik U.</div><div class="author-role">Commodity Trader</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Got my TradingView Pine Script converted to MT5 EA. Smooth transition, proper risk management added on top. Solid team."</p><div class="review-author"><div class="avatar">SU</div><div><div class="author-name">Sunil U.</div><div class="author-role">Intraday Trader</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Demo results matched my manual trading exactly. Astha Algo really does turn your thinking into working code."</p><div class="review-author"><div class="avatar">SH</div><div><div class="author-name">Shreya H.</div><div class="author-role">Positional Trader</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Quick delivery, great communication, clean code. Custom NIFTY indicator with multi-timeframe alerts. Exactly what I needed."</p><div class="review-author"><div class="avatar">AR</div><div><div class="author-name">Archit R.</div><div class="author-role">Technical Analyst</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"My MT4 EA was broken. They fixed it, migrated to MT5, and optimized the logic. Runs perfectly now."</p><div class="review-author"><div class="avatar">VI</div><div><div class="author-name">Viren I.</div><div class="author-role">Algo Trader</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Best decision was automating with Astha Algo. No more screens all day. The bot executes better than I did manually."</p><div class="review-author"><div class="avatar">DH</div><div><div class="author-name">Dhruv H.</div><div class="author-role">Full-time Trader</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Telegram alert system integrated with my MT5 EA. Instant notifications on every trade entry and exit. Very useful."</p><div class="review-author"><div class="avatar">NI</div><div><div class="author-name">Nitya I.</div><div class="author-role">Part-time Trader</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Explained my RSI divergence strategy over WhatsApp. They coded it perfectly. Backtesting results were very encouraging."</p><div class="review-author"><div class="avatar">VA</div><div><div class="author-name">Varun A.</div><div class="author-role">Derivatives Trader</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Very patient team. Kept changing requirements, they handled everything. Final EA is exactly what I wanted."</p><div class="review-author"><div class="avatar">JA</div><div><div class="author-name">Jayesh A.</div><div class="author-role">Equity Trader</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Fast delivery, honest pricing. No hidden charges. Quoted upfront, delivered on time. Breakout strategy now fully automated."</p><div class="review-author"><div class="avatar">RU</div><div><div class="author-name">Rutvik U.</div><div class="author-role">Commodity Trader</div></div></div></div>
     </div>
   </div>
   <div class="scroll-dots" id="dots"></div>
 </div>
 
-<div style="background:var(--bg);border-top:1px solid var(--border);padding:5rem 2.5rem" id="contact">
-  <div style="max-width:1100px;margin:0 auto">
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
     <div class="sec-label">Get In Touch</div>
     <div class="sec-title">Let's Automate Your Strategy</div>
-    <p class="sec-sub">Tell us about your trading logic — we'll give you a free consultation and quote.</p>
+    <p class="sec-sub">Tell us about your trading logic — free consultation and quote.</p>
     <div class="contact-grid">
       <div class="contact-left">
         <h3>Talk to us directly</h3>
-        <p>We respond within a few hours. Just describe your strategy and we'll tell you exactly how we can automate it.</p>
+        <p>We respond within a few hours. Describe your strategy and we'll tell you exactly how we can automate it.</p>
         <div class="contact-rows">
           <div class="crow"><div class="crow-icon">💬</div><div><div class="crow-label">WhatsApp</div><div class="crow-val">+91 XXXXX XXXXX</div></div></div>
           <div class="crow"><div class="crow-icon">✉️</div><div><div class="crow-label">Email</div><div class="crow-val">info@asthaalgo.me</div></div></div>
@@ -236,7 +303,7 @@ footer strong{color:var(--accent)}
         <div><label>Service Needed</label>
           <select><option value="" disabled selected>Select a service</option><option>Strategy Automation (Manual → EA)</option><option>Custom Indicator Development</option><option>MT4 to MT5 Conversion</option><option>Broker / API Integration</option><option>Other / Not Sure</option></select>
         </div>
-        <div><label>Describe Your Trading Strategy *</label><textarea placeholder="e.g. I use EMA crossover with RSI filter on 15min chart. When EMA9 crosses above EMA21 and RSI is below 60, I buy..."></textarea></div>
+        <div><label>Describe Your Trading Strategy *</label><textarea placeholder="e.g. I use EMA crossover with RSI filter on 15min chart..."></textarea></div>
         <button class="fsub">Send Project Inquiry →</button>
       </div>
     </div>
@@ -245,34 +312,51 @@ footer strong{color:var(--accent)}
 
 <footer>
   <p>© 2025 <strong>Astha Algo</strong> — Professional Algo Development for Indian Markets</p>
-  <p style="margin-top:0.4rem;font-size:0.78rem">Trading involves risk. We develop tools — not financial advice.</p>
+  <p style="margin-top:0.4rem;font-size:0.75rem">Trading involves risk. We develop tools — not financial advice.</p>
 </footer>
 
 <a href="https://wa.me/91XXXXXXXXXX" class="wa" title="WhatsApp">💬</a>
 
 <script>
+// Hamburger menu
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// Reviews scroll
 const track = document.getElementById('scrollTrack');
 const cards = track.querySelectorAll('.review-card');
 const dotsWrap = document.getElementById('dots');
-const cardW = 316;
+const cardW = () => track.querySelector('.review-card').offsetWidth + 12;
 let current = 0;
+
 cards.forEach((_,i) => {
   const d = document.createElement('div');
   d.className = 'sdot' + (i===0?' active':'');
-  d.onclick = () => scrollTo(i);
+  d.onclick = () => goTo(i);
   dotsWrap.appendChild(d);
 });
-function scrollTo(i){
+
+function goTo(i){
   current = Math.max(0, Math.min(i, cards.length-1));
-  track.scrollTo({left: current * cardW, behavior:'smooth'});
+  track.scrollTo({left: current * cardW(), behavior:'smooth'});
   document.querySelectorAll('.sdot').forEach((d,j)=>d.className='sdot'+(j===current?' active':''));
 }
-document.getElementById('next').onclick = () => scrollTo(current+1);
-document.getElementById('prev').onclick = () => scrollTo(current-1);
+
+document.getElementById('next').onclick = () => goTo(current+1);
+document.getElementById('prev').onclick = () => goTo(current-1);
+
 track.addEventListener('scroll', () => {
-  const idx = Math.round(track.scrollLeft / cardW);
+  const idx = Math.round(track.scrollLeft / cardW());
   if(idx !== current){ current=idx; document.querySelectorAll('.sdot').forEach((d,j)=>d.className='sdot'+(j===current?' active':'')); }
 });
+
+// Drag to scroll
 let isDown=false, startX, scrollLeft;
 track.addEventListener('mousedown', e=>{isDown=true;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft});
 track.addEventListener('mouseleave',()=>isDown=false);
