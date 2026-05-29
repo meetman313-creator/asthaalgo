@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Astha Algo</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c6fff'/><text x='50%25' y='73%25' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='22' font-weight='900' fill='white'>A</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -13,9 +14,9 @@ a{text-decoration:none;color:inherit}
 
 /* NAV */
 nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(7,8,15,0.97);backdrop-filter:blur(16px);z-index:200}
-.logo{display:flex;align-items:center;gap:0.5rem;font-size:1.2rem;font-weight:800;letter-spacing:-0.5px}
-.logo-icon{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--accent);line-height:1;background:linear-gradient(135deg,var(--accent),#a78fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.logo-text .a{color:var(--accent)}.logo-text .b{color:var(--text)}
+.logo{font-size:1.25rem;font-weight:800;letter-spacing:-0.5px}
+
+.logo .a{color:var(--accent)}.logo .b{color:var(--text)}
 .nav-links{display:flex;gap:2rem;font-size:0.875rem;color:var(--muted)}
 .nav-links a:hover{color:var(--text)}
 .nav-cta{background:var(--accent);color:#fff;padding:0.5rem 1.2rem;border-radius:6px;font-weight:700;font-size:0.85rem;white-space:nowrap}
@@ -154,18 +155,7 @@ footer strong{color:var(--accent)}
 
 <!-- NAV -->
 <nav>
-  <div class="logo">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <text x="2" y="27" font-family="Syne, sans-serif" font-size="30" font-weight="800" fill="url(#ag)">A</text>
-      <defs>
-        <linearGradient id="ag" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#7c6fff"/>
-          <stop offset="100%" stop-color="#a78fff"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <span class="logo-text"><span class="a">Astha</span><span class="b">Algo</span></span>
-  </div>
+  <div class="logo"><span class="a">Astha</span><span class="b">Algo</span></div>
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#process">Process</a>
