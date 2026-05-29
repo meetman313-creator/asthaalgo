@@ -13,8 +13,9 @@ a{text-decoration:none;color:inherit}
 
 /* NAV */
 nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(7,8,15,0.97);backdrop-filter:blur(16px);z-index:200}
-.logo{font-size:1.2rem;font-weight:800;letter-spacing:-0.5px}
-.logo .a{color:var(--accent)}.logo .b{color:var(--text)}
+.logo{display:flex;align-items:center;gap:0.5rem;font-size:1.2rem;font-weight:800;letter-spacing:-0.5px}
+.logo-icon{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--accent);line-height:1;background:linear-gradient(135deg,var(--accent),#a78fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.logo-text .a{color:var(--accent)}.logo-text .b{color:var(--text)}
 .nav-links{display:flex;gap:2rem;font-size:0.875rem;color:var(--muted)}
 .nav-links a:hover{color:var(--text)}
 .nav-cta{background:var(--accent);color:#fff;padding:0.5rem 1.2rem;border-radius:6px;font-weight:700;font-size:0.85rem;white-space:nowrap}
@@ -29,12 +30,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 1
 .mobile-menu a{font-size:1rem;color:var(--muted);padding:0.5rem 0;border-bottom:1px solid var(--border)}
 .mobile-menu a:last-child{border-bottom:none}
 .mobile-menu .m-cta{background:var(--accent);color:#fff;padding:0.75rem;border-radius:8px;font-weight:700;text-align:center;border:none;margin-top:0.5rem}
-
-@media(max-width:768px){
-  .nav-links{display:none}
-  .nav-cta{display:none}
-  .hamburger{display:flex}
-}
+@media(max-width:768px){.nav-links{display:none}.nav-cta{display:none}.hamburger{display:flex}}
 
 /* HERO */
 .hero{padding:4rem 1.5rem 3rem;max-width:900px;margin:0 auto;text-align:center;position:relative}
@@ -85,7 +81,7 @@ h1 .you{color:var(--muted)}h1 .code{color:var(--accent)}
 .process-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3.5rem 1.5rem}
 @media(min-width:768px){.process-wrap{padding:5rem 2.5rem}}
 .process-inner{max-width:1100px;margin:0 auto}
-.steps{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
 @media(min-width:768px){.steps{grid-template-columns:repeat(4,1fr)}}
 .step{padding:1.25rem;background:var(--card);border:1px solid var(--border);border-radius:12px}
 .step-dot{width:48px;height:48px;background:rgba(124,111,255,0.1);border:1px solid rgba(124,111,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700;margin-bottom:1rem}
@@ -132,10 +128,11 @@ h1 .you{color:var(--muted)}h1 .code{color:var(--accent)}
 .contact-left h3{font-size:1.3rem;font-weight:700;margin-bottom:0.75rem}
 .contact-left p{color:var(--muted);font-size:0.875rem;margin-bottom:1.5rem;line-height:1.7}
 .contact-rows{display:flex;flex-direction:column;gap:0.6rem}
-.crow{display:flex;align-items:center;gap:0.75rem;padding:0.8rem 1rem;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.crow{display:flex;align-items:center;gap:0.75rem;padding:0.8rem 1rem;background:var(--card);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:border-color 0.2s}
+.crow:hover{border-color:var(--accent)}
 .crow-icon{width:34px;height:34px;background:rgba(124,111,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0}
 .crow-label{font-size:0.7rem;color:var(--muted);margin-bottom:1px}
-.crow-val{font-size:0.85rem;font-weight:600}
+.crow-val{font-size:0.85rem;font-weight:600;color:var(--text)}
 .form{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;gap:0.9rem}
 .form label{font-size:0.75rem;color:var(--muted);display:block;margin-bottom:0.25rem;font-family:'JetBrains Mono',monospace}
 .form input,.form textarea,.form select{background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:0.7rem 0.9rem;color:var(--text);font-size:0.875rem;font-family:'Syne',sans-serif;outline:none;width:100%;transition:border-color 0.2s;-webkit-appearance:none}
@@ -145,10 +142,10 @@ h1 .you{color:var(--muted)}h1 .code{color:var(--accent)}
 .fsub{background:var(--accent);color:#fff;border:none;padding:0.85rem;border-radius:8px;font-weight:700;font-size:0.9rem;cursor:pointer;width:100%;font-family:'Syne',sans-serif}
 .fsub:hover{background:var(--accent2)}
 
-/* WA */
-.wa{position:fixed;bottom:1.25rem;right:1.25rem;background:#25d366;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;z-index:999;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,0.35)}
+/* TELEGRAM FLOAT */
+.tg-float{position:fixed;bottom:1.25rem;right:1.25rem;background:#229ed9;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;text-decoration:none;box-shadow:0 4px 16px rgba(34,158,217,0.4)}
+.tg-float svg{width:26px;height:26px;fill:#fff}
 
-/* FOOTER */
 footer{border-top:1px solid var(--border);padding:1.75rem 1.5rem;text-align:center;color:var(--muted);font-size:0.8rem}
 footer strong{color:var(--accent)}
 </style>
@@ -157,7 +154,18 @@ footer strong{color:var(--accent)}
 
 <!-- NAV -->
 <nav>
-  <div class="logo"><span class="a">Astha</span><span class="b">Algo</span></div>
+  <div class="logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="2" y="27" font-family="Syne, sans-serif" font-size="30" font-weight="800" fill="url(#ag)">A</text>
+      <defs>
+        <linearGradient id="ag" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#7c6fff"/>
+          <stop offset="100%" stop-color="#a78fff"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="logo-text"><span class="a">Astha</span><span class="b">Algo</span></span>
+  </div>
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#process">Process</a>
@@ -291,20 +299,36 @@ footer strong{color:var(--accent)}
         <h3>Talk to us directly</h3>
         <p>We respond within a few hours. Describe your strategy and we'll tell you exactly how we can automate it.</p>
         <div class="contact-rows">
-          <div class="crow"><div class="crow-icon">💬</div><div><div class="crow-label">WhatsApp</div><div class="crow-val">+91 XXXXX XXXXX</div></div></div>
-          <div class="crow"><div class="crow-icon">✉️</div><div><div class="crow-label">Email</div><div class="crow-val">info@asthaalgo.me</div></div></div>
-          <div class="crow"><div class="crow-icon">📢</div><div><div class="crow-label">Telegram</div><div class="crow-val">@AsthaAlgo</div></div></div>
-          <div class="crow"><div class="crow-icon">🕐</div><div><div class="crow-label">Response Time</div><div class="crow-val">Within 4–6 hours (IST)</div></div></div>
+          <a class="crow" href="https://t.me/Asthaalgo" target="_blank">
+            <div class="crow-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z" fill="#229ed9"/></svg>
+            </div>
+            <div><div class="crow-label">Telegram</div><div class="crow-val">@Asthaalgo</div></div>
+          </a>
+          <a class="crow" href="https://t.me/Asthaalgo" target="_blank">
+            <div class="crow-icon">✉️</div>
+            <div><div class="crow-label">Email</div><div class="crow-val">info@asthaalgo.me</div></div>
+          </a>
+          <a class="crow" href="https://t.me/Asthaalgo" target="_blank">
+            <div class="crow-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z" fill="#229ed9"/></svg>
+            </div>
+            <div><div class="crow-label">Telegram Channel</div><div class="crow-val">t.me/Asthaalgo</div></div>
+          </a>
+          <div class="crow">
+            <div class="crow-icon">🕐</div>
+            <div><div class="crow-label">Response Time</div><div class="crow-val">Within 4–6 hours (IST)</div></div>
+          </div>
         </div>
       </div>
       <div class="form">
         <div><label>Your Name *</label><input type="text" placeholder="Full name"></div>
-        <div><label>WhatsApp Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div><label>Telegram / WhatsApp *</label><input type="text" placeholder="@username or +91 XXXXX XXXXX"></div>
         <div><label>Service Needed</label>
           <select><option value="" disabled selected>Select a service</option><option>Strategy Automation (Manual → EA)</option><option>Custom Indicator Development</option><option>MT4 to MT5 Conversion</option><option>Broker / API Integration</option><option>Other / Not Sure</option></select>
         </div>
         <div><label>Describe Your Trading Strategy *</label><textarea placeholder="e.g. I use EMA crossover with RSI filter on 15min chart..."></textarea></div>
-        <button class="fsub">Send Project Inquiry →</button>
+        <button class="fsub" onclick="window.open('https://t.me/Asthaalgo','_blank')">Send via Telegram →</button>
       </div>
     </div>
   </div>
@@ -315,10 +339,12 @@ footer strong{color:var(--accent)}
   <p style="margin-top:0.4rem;font-size:0.75rem">Trading involves risk. We develop tools — not financial advice.</p>
 </footer>
 
-<a href="https://wa.me/91XXXXXXXXXX" class="wa" title="WhatsApp">💬</a>
+<!-- TELEGRAM FLOAT BUTTON -->
+<a href="https://t.me/Asthaalgo" target="_blank" class="tg-float" title="Contact on Telegram">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+</a>
 
 <script>
-// Hamburger menu
 function toggleMenu(){
   document.getElementById('hamburger').classList.toggle('open');
   document.getElementById('mobileMenu').classList.toggle('open');
@@ -328,7 +354,6 @@ function closeMenu(){
   document.getElementById('mobileMenu').classList.remove('open');
 }
 
-// Reviews scroll
 const track = document.getElementById('scrollTrack');
 const cards = track.querySelectorAll('.review-card');
 const dotsWrap = document.getElementById('dots');
@@ -356,7 +381,6 @@ track.addEventListener('scroll', () => {
   if(idx !== current){ current=idx; document.querySelectorAll('.sdot').forEach((d,j)=>d.className='sdot'+(j===current?' active':'')); }
 });
 
-// Drag to scroll
 let isDown=false, startX, scrollLeft;
 track.addEventListener('mousedown', e=>{isDown=true;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft});
 track.addEventListener('mouseleave',()=>isDown=false);
