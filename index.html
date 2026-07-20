@@ -15,7 +15,6 @@ a{text-decoration:none;color:inherit}
 /* NAV */
 nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(7,8,15,0.97);backdrop-filter:blur(16px);z-index:200}
 .logo{font-size:1.25rem;font-weight:800;letter-spacing:-0.5px}
-
 .logo .a{color:var(--accent)}.logo .b{color:var(--text)}
 .nav-links{display:flex;gap:2rem;font-size:0.875rem;color:var(--muted)}
 .nav-links a:hover{color:var(--text)}
@@ -48,17 +47,16 @@ h1 .you{color:var(--muted)}h1 .code{color:var(--accent)}
 .btn-p:hover{background:var(--accent2)}
 .btn-s{background:transparent;color:var(--text);padding:0.8rem 1.5rem;border-radius:8px;font-weight:600;font-size:0.875rem;border:1px solid var(--border2);cursor:pointer;width:100%;max-width:260px}
 .btn-s:hover{border-color:var(--accent);color:var(--accent)}
-.code-block{background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:1.2rem 1.2rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.72rem;line-height:1.8;margin:0 auto;position:relative;overflow-x:auto}
-.code-block::before{content:'● ● ●';position:absolute;top:0.8rem;left:1rem;font-size:0.6rem;color:var(--muted);letter-spacing:4px}
-.code-block .line{margin-top:0.2rem;white-space:nowrap}
-.c-purple{color:#b393f5}.c-green{color:#7fffbf}.c-yellow{color:#ffe082}.c-muted{color:#5a5d7a}.c-white{color:#dde0f0}.c-blue{color:#79b8ff}
 
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:3rem}
-@media(min-width:600px){.stats{grid-template-columns:repeat(4,1fr)}}
-.stat{background:var(--bg);padding:1.5rem 1rem;text-align:center}
-.stat-n{font-size:1.7rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:var(--accent);letter-spacing:-1px}
-.stat-l{font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
+/* TECH (MOVED TO HERO SECTION) */
+.tech-container{margin:3rem auto 0;max-width:700px;text-align:center;}
+.tech-container .sec-label{font-size:0.7rem;color:var(--accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;font-family:'JetBrains Mono',monospace;display:block;}
+.tech-container .sec-title{font-size:1.8rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:0.5rem;}
+.tech-container .sec-sub{color:var(--muted);font-size:0.85rem;margin:0 auto 1.5rem;}
+.tech-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:1rem}
+.tech{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.7rem 1.2rem;font-size:0.85rem;font-family:'JetBrains Mono',monospace;color:var(--text);display:flex;align-items:center;gap:0.7rem;box-shadow:0 4px 12px rgba(0,0,0,0.2);transition:border-color 0.2s,transform 0.2s;}
+.tech:hover{border-color:var(--accent);transform:translateY(-2px);}
+.tech img{width:24px;height:24px;object-fit:contain;border-radius:4px;}
 
 /* SECTIONS */
 .sec{padding:3.5rem 1.5rem;max-width:1100px;margin:0 auto}
@@ -68,10 +66,10 @@ h1 .you{color:var(--muted)}h1 .code{color:var(--accent)}
 .sec-sub{color:var(--muted);font-size:0.9rem;max-width:500px}
 
 /* SERVICES */
-.services-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:2rem}
+.services-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-top:2rem}
 @media(min-width:600px){.services-grid{grid-template-columns:repeat(2,1fr)}}
-.svc{background:var(--card);padding:1.5rem;transition:background 0.2s}
-.svc:hover{background:#161728}
+.svc{background:var(--card);padding:1.5rem;border:1px solid var(--border);border-radius:12px;transition:border-color 0.2s,transform 0.2s}
+.svc:hover{border-color:var(--border2);transform:translateY(-2px);background:#161728}
 .svc-num{font-size:0.7rem;color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:500;margin-bottom:0.75rem;letter-spacing:1px}
 .svc-title{font-size:1rem;font-weight:700;margin-bottom:0.5rem}
 .svc-desc{color:var(--muted);font-size:0.85rem;line-height:1.65}
@@ -88,11 +86,6 @@ h1 .you{color:var(--muted)}h1 .code{color:var(--accent)}
 .step-dot{width:48px;height:48px;background:rgba(124,111,255,0.1);border:1px solid rgba(124,111,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700;margin-bottom:1rem}
 .step-title{font-weight:700;font-size:0.9rem;margin-bottom:0.35rem}
 .step-desc{color:var(--muted);font-size:0.8rem;line-height:1.6}
-
-/* TECH */
-.tech-grid{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem}
-.tech{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:0.55rem 1rem;font-size:0.8rem;font-family:'JetBrains Mono',monospace;color:var(--muted);display:flex;align-items:center;gap:0.5rem}
-.tech .tdot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
 
 /* REVIEWS */
 .reviews-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3.5rem 0}
@@ -187,15 +180,17 @@ footer strong{color:var(--accent)}
     <button class="btn-p" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Share Your Strategy →</button>
     <button class="btn-s" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See What We Build</button>
   </div>
-  <div class="code-block">
-    <div style="height:1.2rem"></div>
-    <div class="line"><span class="c-muted">// you think it...</span></div>
-    <div class="line"><span class="c-purple">if</span> <span class="c-white">(EMA_9 &gt; EMA_21 &amp;&amp; RSI &lt; 60) {</span></div>
-    <div class="line">&nbsp;&nbsp;<span class="c-green">BUY</span><span class="c-white">(NIFTY, sl=</span><span class="c-blue">50</span><span class="c-white">, target=</span><span class="c-blue">100</span><span class="c-white">)</span></div>
-    <div class="line"><span class="c-white">}</span></div>
-    <div class="line">&nbsp;</div>
-    <div class="line"><span class="c-muted">// ...we code it ✓</span></div>
-    <div class="line"><span class="c-purple">OnTick</span><span class="c-white">() → </span><span class="c-green">signal_check</span><span class="c-white">() → </span><span class="c-green">order_execute</span><span class="c-white">() → </span><span class="c-yellow">risk_manage</span><span class="c-white">()</span></div>
+  
+  <!-- TECH STACK (REPLACED CODE BOX WITH LOGOS) -->
+  <div class="tech-container">
+    <span class="sec-label">Technologies</span>
+    <div class="sec-title">Our Tech Stack</div>
+    <p class="sec-sub">We work with the tools that professional algo traders actually use.</p>
+    <div class="tech-grid">
+      <div class="tech"><img src="mt5.png" alt="MT5 Logo">MetaTrader 5 (MQL5 / MQL4)</div>
+      <div class="tech"><img src="TradingView.png" alt="TradingView Logo">Pine Script (TradingView)</div>
+      <div class="tech"><img src="stragy tester.png" alt="Strategy Tester Logo">Strategy Tester (MT5)</div>
+    </div>
   </div>
 </div>
 
@@ -224,19 +219,6 @@ footer strong{color:var(--accent)}
       <div class="step"><div class="step-dot">03</div><div class="step-title">Development</div><p class="step-desc">We code your algo in MQL5/Pine Script with clean, documented, production-ready code.</p></div>
       <div class="step"><div class="step-dot">04</div><div class="step-title">Testing & Delivery</div><p class="step-desc">Backtesting, demo testing, then full source code delivery with setup support.</p></div>
     </div>
-  </div>
-</div>
-
-<!-- TECH -->
-<div class="sec" id="tech">
-  <div class="sec-label">Technologies</div>
-  <div class="sec-title">Our Tech Stack</div>
-  <p class="sec-sub">We work with the tools that professional algo traders actually use.</p>
-  <div class="tech-grid">
-    <div class="tech"><div class="tdot"></div>MQL5 / MQL4</div>
-    <div class="tech"><div class="tdot"></div>MetaTrader 5</div>
-    <div class="tech"><div class="tdot"></div>Pine Script (TradingView)</div>
-    <div class="tech"><div class="tdot"></div>Strategy Tester (MT5)</div>
   </div>
 </div>
 
