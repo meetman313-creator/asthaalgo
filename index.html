@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Astha Algo — Algo Development Studio</title>
 
-<link rel="icon" type="image/svg+xml"
-href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300FF87'/><text x='50%25' y='73%25' text-anchor='middle' font-family='Arial Black' font-size='22' font-weight='900' fill='black'>A</text></svg>">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
 
 *{
     margin:0;
@@ -19,949 +24,1707 @@ href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32
     box-sizing:border-box;
 }
 
-:root{
-    --white:#ffffff;
-    --light:#f6f8f7;
-    --light2:#eef2f0;
-    --card:#ffffff;
-    --black:#050505;
-    --text:#111111;
-    --muted:#626862;
-    --mint:#00ff87;
-    --mint-dark:#00c96a;
-    --border:#e3e8e5;
-    --shadow:0 15px 40px rgba(0,0,0,0.06);
-}
-
 html{
     scroll-behavior:smooth;
 }
 
+:root{
+
+    --white:#FFFFFF;
+
+    --bg:#FFFFFF;
+
+    --bg-light:#F6F8F7;
+
+    --card:#F9F9F9;
+
+    --text:#000000;
+
+    --text-soft:#222222;
+
+    --muted:#626862;
+
+    --border:#E3E8E5;
+
+    --mint:#00FF87;
+
+    --mint-dark:#00D96F;
+
+    --mint-soft:#EAFFF4;
+
+}
+
 body{
-    background:var(--white);
+
+    background:var(--bg);
+
     color:var(--text);
+
     font-family:'Inter',sans-serif;
+
     line-height:1.6;
+
     overflow-x:hidden;
+
 }
 
 a{
+
     text-decoration:none;
+
     color:inherit;
+
 }
 
 button{
+
     font-family:inherit;
+
 }
 
-/* =========================
+
+/* =====================================================
    NAVBAR
-========================= */
+===================================================== */
 
 nav{
+
     height:72px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     padding:0 5%;
-    border-bottom:1px solid var(--border);
-    background:rgba(255,255,255,0.94);
-    backdrop-filter:blur(16px);
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid var(--border);
+
 }
 
 .logo{
+
     font-size:1.35rem;
+
     font-weight:800;
+
     letter-spacing:-1px;
+
 }
 
 .logo .a{
-    color:var(--black);
+
+    color:#000;
+
 }
 
 .logo .b{
-    color:var(--mint-dark);
+
+    color:#00B963;
+
 }
 
 .nav-links{
+
     display:flex;
-    gap:2.2rem;
-    font-size:.85rem;
+
+    gap:2rem;
+
     color:#555;
+
+    font-size:.85rem;
+
 }
 
 .nav-links a{
+
     transition:.2s;
+
 }
 
 .nav-links a:hover{
-    color:#000;
+
+    color:#00A85A;
+
 }
 
 .nav-cta{
+
     background:var(--mint);
+
     color:#000;
-    padding:.65rem 1.25rem;
+
+    padding:.65rem 1.2rem;
+
     border-radius:8px;
-    font-size:.85rem;
+
+    font-size:.82rem;
+
     font-weight:700;
+
     transition:.2s;
+
 }
 
 .nav-cta:hover{
-    background:#00df77;
+
+    background:var(--mint-dark);
+
     transform:translateY(-1px);
+
 }
 
 .hamburger{
+
     display:none;
-    cursor:pointer;
+
     flex-direction:column;
+
     gap:5px;
+
+    cursor:pointer;
+
 }
 
 .hamburger span{
+
     width:23px;
+
     height:2px;
-    background:#111;
+
+    background:#000;
+
 }
 
 .mobile-menu{
+
     display:none;
+
 }
 
-/* =========================
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
+
     min-height:650px;
+
     padding:90px 6%;
+
     display:grid;
-    grid-template-columns:1.05fr .95fr;
+
+    grid-template-columns:1fr 1fr;
+
     align-items:center;
-    gap:70px;
+
+    gap:60px;
+
     background:
-        radial-gradient(circle at 80% 30%,rgba(0,255,135,.12),transparent 30%),
-        linear-gradient(180deg,#fff 0%,#f8fbf9 100%);
+
+        radial-gradient(
+
+            circle at 80% 30%,
+
+            rgba(0,255,135,.12),
+
+            transparent 30%
+
+        ),
+
+        linear-gradient(
+
+            180deg,
+
+            #FFFFFF 0%,
+
+            #F7FAF8 100%
+
+        );
+
 }
 
 .hero-left{
+
     max-width:650px;
+
 }
 
 .hero-tag{
+
     display:inline-flex;
+
     align-items:center;
+
     gap:8px;
-    background:#effff7;
-    border:1px solid #c8f8df;
-    color:#008c4b;
+
+    background:var(--mint-soft);
+
+    border:1px solid #C8F8DF;
+
+    color:#008C4B;
+
     padding:7px 14px;
+
     border-radius:100px;
-    font-size:.75rem;
+
+    font-size:.72rem;
+
     font-family:'JetBrains Mono',monospace;
-    margin-bottom:25px;
+
+    margin-bottom:24px;
+
 }
 
 .hero-tag span{
-    color:#00a95b;
+
+    color:#00B963;
+
 }
 
 .hero h1{
-    font-size:clamp(3rem,6vw,5.4rem);
+
+    font-size:clamp(3rem,6vw,5.2rem);
+
     line-height:1.02;
+
     letter-spacing:-4px;
+
     font-weight:800;
-    margin-bottom:22px;
+
+    margin-bottom:20px;
+
 }
 
 .hero h1 .muted{
-    color:#a1a8a3;
+
+    color:#A0A7A2;
+
 }
 
 .hero h1 .mint{
-    color:#00c96a;
+
+    color:#00B963;
+
 }
 
 .hero-sub{
-    color:#606760;
-    max-width:580px;
-    font-size:1rem;
+
+    max-width:570px;
+
+    color:var(--muted);
+
+    font-size:.98rem;
+
     line-height:1.8;
-    margin-bottom:30px;
+
+    margin-bottom:28px;
+
 }
 
 .hero-buttons{
+
     display:flex;
+
     gap:12px;
+
     flex-wrap:wrap;
+
 }
 
 .btn-primary{
-    background:var(--mint);
-    color:#000;
+
     border:0;
-    padding:13px 23px;
+
+    background:var(--mint);
+
+    color:#000;
+
+    padding:13px 22px;
+
     border-radius:9px;
+
     font-weight:700;
+
     cursor:pointer;
+
     transition:.2s;
+
 }
 
 .btn-primary:hover{
+
+    background:var(--mint-dark);
+
     transform:translateY(-2px);
+
     box-shadow:0 10px 25px rgba(0,255,135,.2);
+
 }
 
 .btn-secondary{
+
     background:#fff;
-    color:#111;
+
+    color:#000;
+
     border:1px solid var(--border);
-    padding:13px 23px;
+
+    padding:13px 22px;
+
     border-radius:9px;
+
     font-weight:600;
+
     cursor:pointer;
+
 }
 
 .btn-secondary:hover{
+
     border-color:var(--mint-dark);
+
 }
 
-/* CODE PANEL */
+
+/* CODE WINDOW */
 
 .hero-right{
-    position:relative;
+
+    width:100%;
+
 }
 
 .code-window{
-    background:#0c0d0d;
+
+    background:#0B0D0D;
+
+    border:1px solid #242727;
+
     border-radius:18px;
+
     padding:25px;
-    box-shadow:0 25px 70px rgba(0,0,0,.18);
-    color:#eee;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+
+    color:#fff;
+
     font-family:'JetBrains Mono',monospace;
-    overflow:hidden;
-    border:1px solid #222;
+
 }
 
 .window-top{
+
     display:flex;
+
     gap:7px;
-    margin-bottom:24px;
+
+    margin-bottom:22px;
+
 }
 
 .window-dot{
+
     width:8px;
+
     height:8px;
-    border-radius:50%;
+
     background:#777;
+
+    border-radius:50%;
+
 }
 
 .code{
-    font-size:.78rem;
-    line-height:2;
-}
 
-.c-green{
-    color:#00ff87;
+    font-size:.76rem;
+
+    line-height:2;
+
+    overflow-x:auto;
+
 }
 
 .c-purple{
-    color:#b999ff;
+
+    color:#B999FF;
+
+}
+
+.c-green{
+
+    color:#00FF87;
+
 }
 
 .c-blue{
-    color:#70b7ff;
+
+    color:#70B7FF;
+
 }
 
 .c-yellow{
-    color:#ffe28a;
+
+    color:#FFE28A;
+
 }
 
 .c-muted{
+
     color:#777;
+
 }
 
-/* =========================
-   STATS CARDS
-========================= */
+
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats-section{
-    padding:65px 6%;
+
+    padding:60px 6%;
+
     background:#fff;
+
 }
 
 .stats-grid{
+
     max-width:1200px;
+
     margin:auto;
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:18px;
+
 }
 
 .stat-card{
-    background:#f8faf9;
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:28px;
-    transition:.25s;
-    position:relative;
-    overflow:hidden;
-}
 
-.stat-card::after{
-    content:'';
-    position:absolute;
-    width:90px;
-    height:90px;
-    background:rgba(0,255,135,.1);
-    border-radius:50%;
-    right:-35px;
-    bottom:-35px;
+    background:#F9F9F9;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:28px;
+
+    transition:.25s;
+
 }
 
 .stat-card:hover{
+
     transform:translateY(-5px);
+
     border-color:var(--mint);
-    box-shadow:0 15px 35px rgba(0,255,135,.08);
+
+    box-shadow:0 15px 35px rgba(0,255,135,.12);
+
 }
 
 .stat-number{
+
     font-family:'JetBrains Mono',monospace;
-    color:#00b963;
-    font-size:1.8rem;
+
+    color:#00B963;
+
+    font-size:1.75rem;
+
     font-weight:700;
-    margin-bottom:8px;
+
+    margin-bottom:7px;
+
 }
 
 .stat-title{
+
     font-weight:700;
-    font-size:1rem;
+
     margin-bottom:5px;
+
 }
 
 .stat-desc{
+
     color:var(--muted);
+
     font-size:.78rem;
+
 }
 
-/* =========================
-   COMMON SECTION
-========================= */
+
+/* =====================================================
+   COMMON SECTIONS
+===================================================== */
 
 .section{
+
     padding:95px 6%;
+
 }
 
 .section-light{
-    background:var(--light);
+
+    background:var(--bg-light);
+
 }
 
 .section-head{
+
     max-width:700px;
-    margin-bottom:45px;
+
+    margin-bottom:42px;
+
 }
 
 .section-label{
-    color:#00a85a;
+
+    color:#00A85A;
+
     font-family:'JetBrains Mono',monospace;
-    font-size:.7rem;
+
+    font-size:.68rem;
+
     letter-spacing:2px;
+
     text-transform:uppercase;
+
     font-weight:600;
+
     margin-bottom:10px;
+
 }
 
 .section-title{
-    font-size:clamp(2rem,4vw,3.2rem);
+
+    font-size:clamp(2rem,4vw,3.1rem);
+
     line-height:1.1;
+
     letter-spacing:-2px;
-    margin-bottom:14px;
+
+    margin-bottom:13px;
+
 }
 
 .section-sub{
+
     color:var(--muted);
+
     max-width:600px;
+
+    font-size:.9rem;
+
 }
 
-/* =========================
+
+/* =====================================================
    SERVICES
-========================= */
+===================================================== */
 
 .services-grid{
+
     max-width:1200px;
+
     margin:auto;
+
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:18px;
+
 }
 
 .service-card{
+
     background:#fff;
+
     border:1px solid var(--border);
-    border-radius:18px;
+
+    border-radius:17px;
+
     padding:30px;
+
     transition:.25s;
+
 }
 
 .service-card:hover{
+
     transform:translateY(-5px);
+
     border-color:var(--mint);
-    box-shadow:var(--shadow);
+
+    box-shadow:0 15px 35px rgba(0,255,135,.08);
+
 }
 
 .service-number{
-    color:#00ae61;
+
+    color:#00A85A;
+
     font-family:'JetBrains Mono',monospace;
-    font-size:.7rem;
-    margin-bottom:20px;
+
+    font-size:.68rem;
+
+    margin-bottom:18px;
+
 }
 
 .service-title{
-    font-size:1.25rem;
+
+    font-size:1.15rem;
+
     font-weight:700;
-    margin-bottom:10px;
+
+    margin-bottom:9px;
+
 }
 
 .service-desc{
+
     color:var(--muted);
-    font-size:.87rem;
-    line-height:1.75;
+
+    font-size:.84rem;
+
+    line-height:1.7;
+
 }
 
 .tags{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:7px;
-    margin-top:20px;
+
+    margin-top:18px;
+
 }
 
 .tag{
+
+    background:var(--mint-soft);
+
+    border:1px solid #C8F8DF;
+
+    color:#008C4B;
+
     padding:5px 9px;
+
     border-radius:6px;
-    background:#effff7;
-    color:#008e4d;
+
     font-family:'JetBrains Mono',monospace;
-    font-size:.65rem;
-    border:1px solid #cdf5df;
+
+    font-size:.63rem;
+
 }
 
-/* =========================
+
+/* =====================================================
+   FREE EAs
+===================================================== */
+
+.ea-section{
+
+    padding:95px 6%;
+
+    background:#FFFFFF;
+
+    border-top:1px solid var(--border);
+
+}
+
+.ea-header{
+
+    max-width:1200px;
+
+    margin:0 auto 42px;
+
+}
+
+.ea-subtitle{
+
+    color:var(--muted);
+
+    font-size:.9rem;
+
+    margin-top:8px;
+
+}
+
+.ea-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.ea-card{
+
+    background:#F9F9F9;
+
+    border:1px solid #E3E8E5;
+
+    border-radius:16px;
+
+    padding:27px;
+
+    color:#000;
+
+    transition:.25s;
+
+}
+
+.ea-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#00FF87;
+
+    box-shadow:
+
+        0 12px 35px rgba(0,255,135,.16);
+
+}
+
+.ea-number{
+
+    color:#00B963;
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:.68rem;
+
+    margin-bottom:15px;
+
+}
+
+.ea-name{
+
+    font-size:1.12rem;
+
+    font-weight:700;
+
+    margin-bottom:9px;
+
+}
+
+.ea-description{
+
+    color:#626862;
+
+    font-size:.81rem;
+
+    line-height:1.7;
+
+    min-height:55px;
+
+    margin-bottom:20px;
+
+}
+
+.ea-download{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    background:#00FF87;
+
+    color:#000;
+
+    padding:10px 17px;
+
+    border-radius:8px;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    transition:.2s;
+
+}
+
+.ea-download:hover{
+
+    background:#00D96F;
+
+    transform:translateY(-1px);
+
+}
+
+
+/* =====================================================
    PROCESS
-========================= */
+===================================================== */
 
 .process-section{
-    background:#f6f8f7;
+
     padding:95px 6%;
+
+    background:#F6F8F7;
+
+    border-top:1px solid var(--border);
+
+    border-bottom:1px solid var(--border);
+
 }
 
 .steps{
+
     max-width:1200px;
+
     margin:auto;
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:18px;
+
 }
 
 .step{
+
     background:#fff;
+
     border:1px solid var(--border);
+
     border-radius:17px;
-    padding:28px;
+
+    padding:27px;
+
     transition:.25s;
+
 }
 
 .step:hover{
-    border-color:var(--mint);
+
     transform:translateY(-4px);
+
+    border-color:var(--mint);
+
 }
 
-.step-number{
+.step-dot{
+
     width:48px;
+
     height:48px;
-    border-radius:50%;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    background:#eafff4;
-    color:#00a85b;
-    border:1px solid #bdf5d7;
+
+    border-radius:50%;
+
+    background:var(--mint-soft);
+
+    border:1px solid #BDF5D7;
+
+    color:#00A85A;
+
     font-family:'JetBrains Mono',monospace;
-    font-weight:600;
-    font-size:.75rem;
-    margin-bottom:22px;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
 }
 
 .step-title{
-    font-size:.95rem;
+
     font-weight:700;
+
+    font-size:.92rem;
+
     margin-bottom:8px;
+
 }
 
 .step-desc{
+
     color:var(--muted);
-    font-size:.8rem;
+
+    font-size:.79rem;
+
     line-height:1.7;
+
 }
 
-/* =========================
+
+/* =====================================================
    TECH
-========================= */
+===================================================== */
 
 .tech-grid{
+
     max-width:1200px;
+
+    margin:auto;
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:12px;
+
 }
 
 .tech{
-    background:#f8faf9;
+
+    background:#F9F9F9;
+
     border:1px solid var(--border);
+
     border-radius:10px;
-    padding:12px 17px;
+
+    padding:11px 16px;
+
     font-family:'JetBrains Mono',monospace;
-    font-size:.75rem;
+
+    font-size:.73rem;
+
+    color:#555;
+
     display:flex;
+
     align-items:center;
-    gap:9px;
+
+    gap:8px;
+
     transition:.2s;
+
 }
 
 .tech:hover{
+
     border-color:var(--mint);
-    background:#f0fff7;
+
+    background:#F0FFF7;
+
 }
 
 .tech-dot{
+
     width:7px;
+
     height:7px;
+
     border-radius:50%;
-    background:var(--mint-dark);
+
+    background:#00C96A;
+
 }
 
-/* =========================
+
+/* =====================================================
    REVIEWS
-========================= */
+===================================================== */
 
 .reviews-section{
-    background:#f6f8f7;
+
     padding:95px 0;
+
+    background:#F6F8F7;
+
+    border-top:1px solid var(--border);
+
+    border-bottom:1px solid var(--border);
+
 }
 
 .reviews-head{
-    padding:0 6%;
+
     max-width:1200px;
+
+    padding:0 6%;
+
     margin:auto;
+
 }
 
-.review-nav{
+.reviews-nav{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:end;
+
 }
 
 .review-buttons{
+
     display:flex;
+
     gap:8px;
+
 }
 
 .review-btn{
+
     width:40px;
+
     height:40px;
+
     border-radius:50%;
+
     background:#fff;
+
     border:1px solid var(--border);
+
     cursor:pointer;
+
 }
 
 .review-btn:hover{
+
     border-color:var(--mint);
+
 }
 
 .review-track{
+
     overflow-x:auto;
+
     scrollbar-width:none;
-    padding:25px 6px 20px;
+
+    padding:25px 6% 20px;
+
     cursor:grab;
+
 }
 
 .review-track::-webkit-scrollbar{
+
     display:none;
+
 }
 
 .review-inner{
+
     display:flex;
+
     gap:16px;
+
     width:max-content;
-    padding-left:6%;
-    padding-right:6%;
+
 }
 
 .review-card{
-    width:310px;
+
+    width:300px;
+
     background:#fff;
+
     border:1px solid var(--border);
-    border-radius:17px;
+
+    border-radius:16px;
+
     padding:25px;
+
 }
 
 .review-card:hover{
-    border-color:#b9efcf;
+
+    border-color:var(--mint);
+
 }
 
 .stars{
-    color:#00bd67;
+
+    color:#00B963;
+
     letter-spacing:3px;
-    margin-bottom:15px;
+
+    margin-bottom:14px;
+
 }
 
 .review-text{
-    color:#59605a;
-    font-size:.82rem;
+
+    color:#626862;
+
+    font-size:.81rem;
+
     line-height:1.75;
+
     margin-bottom:20px;
+
 }
 
-.author{
+.review-author{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
 }
 
 .avatar{
+
     width:36px;
+
     height:36px;
+
     border-radius:50%;
-    background:#eafff4;
-    color:#00a85b;
+
     display:flex;
-    justify-content:center;
+
     align-items:center;
+
+    justify-content:center;
+
+    background:var(--mint-soft);
+
+    border:1px solid #BDF5D7;
+
+    color:#00A85A;
+
     font-family:'JetBrains Mono',monospace;
-    font-size:.7rem;
+
+    font-size:.68rem;
+
     font-weight:700;
+
 }
 
 .author-name{
+
     font-weight:700;
+
     font-size:.8rem;
+
 }
 
 .author-role{
+
     color:#888;
-    font-size:.7rem;
+
+    font-size:.68rem;
+
 }
 
-/* =========================
+
+/* =====================================================
    CONTACT
-========================= */
+===================================================== */
 
 .contact-section{
-    padding:100px 6%;
+
+    padding:95px 6%;
+
     background:#fff;
+
 }
 
 .contact-grid{
+
     max-width:1200px;
+
     margin:auto;
+
     display:grid;
+
     grid-template-columns:.8fr 1.2fr;
-    gap:50px;
-    align-items:start;
+
+    gap:45px;
+
 }
 
-.contact-info h3{
-    font-size:1.5rem;
-    margin-bottom:12px;
+.contact-left h3{
+
+    font-size:1.4rem;
+
+    margin-bottom:10px;
+
 }
 
-.contact-info>p{
+.contact-left>p{
+
     color:var(--muted);
-    font-size:.9rem;
+
+    font-size:.86rem;
+
     line-height:1.7;
-    margin-bottom:25px;
+
+    margin-bottom:22px;
+
 }
 
-.contact-list{
+.contact-rows{
+
     display:flex;
+
     flex-direction:column;
+
     gap:10px;
+
 }
 
-.contact-item{
+.contact-row{
+
     display:flex;
+
     align-items:center;
-    gap:13px;
-    padding:14px;
+
+    gap:12px;
+
+    padding:13px;
+
     border:1px solid var(--border);
-    border-radius:12px;
-    background:#fafbfa;
+
+    background:#F9F9F9;
+
+    border-radius:11px;
+
 }
 
 .contact-icon{
+
     width:38px;
+
     height:38px;
+
     border-radius:9px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    background:#eafff4;
+
+    background:var(--mint-soft);
+
 }
 
 .contact-label{
+
     color:#888;
+
     font-size:.65rem;
+
 }
 
 .contact-value{
+
     font-weight:600;
-    font-size:.82rem;
+
+    font-size:.8rem;
+
 }
 
 .form{
-    background:#f8faf9;
+
+    background:#F9F9F9;
+
     border:1px solid var(--border);
-    border-radius:18px;
-    padding:30px;
+
+    border-radius:17px;
+
+    padding:28px;
+
 }
 
 .form-row{
+
     margin-bottom:15px;
+
 }
 
 .form label{
+
     display:block;
-    font-size:.7rem;
+
     color:#555;
-    margin-bottom:6px;
+
     font-family:'JetBrains Mono',monospace;
+
+    font-size:.68rem;
+
+    margin-bottom:6px;
+
 }
 
 .form input,
+
 .form textarea,
+
 .form select{
+
     width:100%;
+
     background:#fff;
-    border:1px solid #dfe5e1;
-    color:#111;
-    padding:12px 13px;
+
+    border:1px solid #DDE3DF;
+
     border-radius:8px;
-    outline:none;
+
+    padding:12px;
+
+    color:#000;
+
     font-family:'Inter',sans-serif;
-    font-size:.82rem;
+
+    outline:none;
+
 }
 
 .form input:focus,
+
 .form textarea:focus,
+
 .form select:focus{
-    border-color:var(--mint-dark);
+
+    border-color:#00D96F;
+
     box-shadow:0 0 0 3px rgba(0,255,135,.1);
+
 }
 
 .form textarea{
+
     min-height:120px;
+
     resize:vertical;
+
 }
 
 .submit{
+
     width:100%;
-    background:var(--mint);
+
+    background:#00FF87;
+
     color:#000;
+
     border:0;
-    padding:14px;
+
     border-radius:8px;
+
+    padding:14px;
+
     font-weight:700;
+
     cursor:pointer;
-    margin-top:5px;
+
 }
 
 .submit:hover{
-    background:#00df77;
+
+    background:#00D96F;
+
 }
 
-/* =========================
+
+/* =====================================================
    TELEGRAM
-========================= */
+===================================================== */
 
 .telegram{
+
     position:fixed;
+
     right:22px;
+
     bottom:22px;
+
     width:54px;
+
     height:54px;
+
     border-radius:50%;
-    background:#229ed9;
+
+    background:#229ED9;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     z-index:999;
+
     box-shadow:0 8px 25px rgba(34,158,217,.3);
+
 }
 
 .telegram svg{
+
     width:27px;
+
     fill:#fff;
+
 }
 
-/* =========================
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
-    background:#f6f8f7;
+
+    background:#F6F8F7;
+
     border-top:1px solid var(--border);
+
     text-align:center;
+
     padding:30px 20px;
+
     color:#777;
+
     font-size:.75rem;
+
 }
 
 footer strong{
-    color:#00a85b;
+
+    color:#00A85A;
+
 }
 
-/* =========================
-   MOBILE
-========================= */
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media(max-width:900px){
 
     .hero{
-        grid-template-columns:1fr;
-        padding:70px 6%;
-        gap:45px;
-    }
 
-    .hero h1{
-        letter-spacing:-2.5px;
+        grid-template-columns:1fr;
+
+        padding:70px 6%;
+
     }
 
     .stats-grid{
+
         grid-template-columns:repeat(2,1fr);
+
     }
 
     .steps{
+
         grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .ea-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
     }
 
     .contact-grid{
+
         grid-template-columns:1fr;
+
     }
+
 }
 
 @media(max-width:700px){
 
     nav{
+
         height:64px;
+
         padding:0 5%;
+
     }
 
     .nav-links,
+
     .nav-cta{
+
         display:none;
+
     }
 
     .hamburger{
+
         display:flex;
+
     }
 
     .mobile-menu{
+
         position:fixed;
+
         top:64px;
+
         left:0;
+
         right:0;
+
         background:#fff;
+
         border-bottom:1px solid var(--border);
+
         padding:20px;
+
         z-index:999;
+
         flex-direction:column;
+
         gap:0;
+
     }
 
     .mobile-menu.open{
+
         display:flex;
+
     }
 
     .mobile-menu a{
+
         padding:13px 5px;
+
         border-bottom:1px solid var(--border);
+
         color:#555;
+
     }
 
     .mobile-menu .mobile-cta{
+
         background:var(--mint);
+
         color:#000;
+
         text-align:center;
+
         border-radius:8px;
+
         margin-top:12px;
-        border:0;
+
         font-weight:700;
+
     }
 
     .hero{
-        min-height:auto;
-        padding:65px 5%;
+
+        padding:60px 5%;
+
     }
 
     .hero h1{
-        font-size:3.1rem;
-    }
 
-    .hero-sub{
-        font-size:.9rem;
+        font-size:3rem;
+
+        letter-spacing:-2.5px;
+
     }
 
     .hero-buttons{
+
         flex-direction:column;
+
     }
 
     .btn-primary,
+
     .btn-secondary{
+
         width:100%;
+
     }
 
     .stats-grid{
+
         grid-template-columns:1fr;
+
     }
 
     .services-grid{
+
         grid-template-columns:1fr;
+
+    }
+
+    .ea-grid{
+
+        grid-template-columns:1fr;
+
     }
 
     .steps{
+
         grid-template-columns:1fr;
+
     }
 
     .section,
+
+    .ea-section,
+
     .process-section,
+
     .contact-section{
+
         padding:70px 5%;
+
     }
 
     .section-title{
+
         font-size:2.2rem;
+
     }
 
-    .form{
-        padding:22px;
-    }
-
-    .code{
-        font-size:.65rem;
-    }
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- NAVBAR -->
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <nav>
 
@@ -969,143 +1732,287 @@ footer strong{
         <span class="a">Astha</span><span class="b">Algo</span>
     </div>
 
+
     <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#EA">
+            Free EAs
+        </a>
+
+        <a href="#process">
+            Process
+        </a>
+
+        <a href="#reviews">
+            Reviews
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
-    <a href="#contact" class="nav-cta">Hire Us</a>
 
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <a href="#contact" class="nav-cta">
+        Hire Us
+    </a>
+
+
+    <div class="hamburger" onclick="toggleMenu()">
+
         <span></span>
         <span></span>
         <span></span>
+
     </div>
 
 </nav>
 
 
-<!-- MOBILE MENU -->
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
 
 <div class="mobile-menu" id="mobileMenu">
 
-    <a href="#services" onclick="closeMenu()">Services</a>
-    <a href="#process" onclick="closeMenu()">Process</a>
-    <a href="#reviews" onclick="closeMenu()">Reviews</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#services" onclick="closeMenu()">
+        Services
+    </a>
 
-    <a href="#contact" class="mobile-cta" onclick="closeMenu()">
+    <a href="#EA" onclick="closeMenu()">
+        Free EAs
+    </a>
+
+    <a href="#process" onclick="closeMenu()">
+        Process
+    </a>
+
+    <a href="#reviews" onclick="closeMenu()">
+        Reviews
+    </a>
+
+    <a href="#contact" onclick="closeMenu()">
+        Contact
+    </a>
+
+    <a href="#contact"
+       class="mobile-cta"
+       onclick="closeMenu()">
+
         Hire Us →
+
     </a>
 
 </div>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
+
     <div class="hero-left">
 
+
         <div class="hero-tag">
+
             <span>●</span>
+
             Algo Development Studio
+
         </div>
 
+
         <h1>
-            You <span class="muted">Think</span> It.<br>
-            We <span class="mint">Code</span> It.
+
+            You
+            <span class="muted">
+                Think
+            </span>
+            It.<br>
+
+            We
+            <span class="mint">
+                Code
+            </span>
+            It.
+
         </h1>
 
+
         <p class="hero-sub">
-            You have a trading idea. We turn it into a fully automated,
-            backtested algorithm — ready to deploy on MT5, TradingView,
-            or broker APIs.
+
+            You have a trading idea. We turn it into a fully
+            automated, backtested algorithm — ready to deploy
+            on MT5, TradingView, or broker APIs.
+
         </p>
+
 
         <div class="hero-buttons">
 
-            <button class="btn-primary"
-            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            <button
+                class="btn-primary"
+                onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+
                 Share Your Strategy →
+
             </button>
 
-            <button class="btn-secondary"
-            onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+
+            <button
+                class="btn-secondary"
+                onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+
                 See What We Build
+
             </button>
 
         </div>
+
 
     </div>
 
 
     <div class="hero-right">
 
+
         <div class="code-window">
 
+
             <div class="window-top">
+
                 <div class="window-dot"></div>
                 <div class="window-dot"></div>
                 <div class="window-dot"></div>
+
             </div>
+
 
             <div class="code">
 
-                <div>
-                    <span class="c-muted">// you think it...</span>
-                </div>
 
                 <div>
-                    <span class="c-purple">if</span>
+                    <span class="c-muted">
+                        // you think it...
+                    </span>
+                </div>
+
+
+                <div>
+
+                    <span class="c-purple">
+                        if
+                    </span>
+
                     (EMA_9 &gt; EMA_21 &amp;&amp; RSI &lt; 60) {
+
                 </div>
+
 
                 <div>
+
                     &nbsp;&nbsp;
-                    <span class="c-green">BUY</span>
-                    (NIFTY, sl=<span class="c-blue">50</span>,
-                    target=<span class="c-blue">100</span>)
+
+                    <span class="c-green">
+                        BUY
+                    </span>
+
+                    (NIFTY, sl=
+
+                    <span class="c-blue">
+                        50
+                    </span>
+
+                    , target=
+
+                    <span class="c-blue">
+                        100
+                    </span>
+
+                    )
+
                 </div>
 
-                <div>}</div>
+
+                <div>
+                    }
+                </div>
+
 
                 <br>
 
-                <div>
-                    <span class="c-muted">// ...we code it ✓</span>
-                </div>
 
                 <div>
-                    <span class="c-purple">OnTick</span>()
-                    →
-                    <span class="c-green">signal_check</span>()
-                    →
-                    <span class="c-green">order_execute</span>()
-                    →
-                    <span class="c-yellow">risk_manage</span>()
+
+                    <span class="c-muted">
+                        // ...we code it ✓
+                    </span>
+
                 </div>
+
+
+                <div>
+
+                    <span class="c-purple">
+                        OnTick
+                    </span>()
+
+                    →
+
+                    <span class="c-green">
+                        signal_check
+                    </span>()
+
+                    →
+
+                    <span class="c-green">
+                        order_execute
+                    </span>()
+
+                    →
+
+                    <span class="c-yellow">
+                        risk_manage
+                    </span>()
+
+                </div>
+
 
             </div>
 
+
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- STATS -->
+<!-- =====================================================
+     STATS
+===================================================== -->
 
 <section class="stats-section">
 
+
     <div class="stats-grid">
+
 
         <div class="stat-card">
 
-            <div class="stat-number">50+</div>
+            <div class="stat-number">
+                50+
+            </div>
 
             <div class="stat-title">
                 Algos Delivered
@@ -1120,7 +2027,9 @@ footer strong{
 
         <div class="stat-card">
 
-            <div class="stat-number">MQL5</div>
+            <div class="stat-number">
+                MQL5
+            </div>
 
             <div class="stat-title">
                 Primary Language
@@ -1135,7 +2044,9 @@ footer strong{
 
         <div class="stat-card">
 
-            <div class="stat-number">100%</div>
+            <div class="stat-number">
+                100%
+            </div>
 
             <div class="stat-title">
                 Custom Built
@@ -1150,26 +2061,33 @@ footer strong{
 
         <div class="stat-card">
 
-            <div class="stat-number">NSE/BSE</div>
+            <div class="stat-number">
+                NSE/BSE
+            </div>
 
             <div class="stat-title">
                 Market Focus
             </div>
 
             <div class="stat-desc">
-                Indian markets and derivatives automation.
+                Indian markets and automation.
             </div>
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- SERVICES -->
+<!-- =====================================================
+     SERVICES
+===================================================== -->
 
 <section class="section" id="services">
+
 
     <div class="section-head">
 
@@ -1191,6 +2109,7 @@ footer strong{
 
     <div class="services-grid">
 
+
         <div class="service-card">
 
             <div class="service-number">
@@ -1202,14 +2121,25 @@ footer strong{
             </div>
 
             <p class="service-desc">
-                Share your entry/exit rules, indicators and risk logic —
-                we convert it into a fully working Expert Advisor on MT5.
+                Share your entry/exit rules, indicators and
+                risk logic — we convert it into a fully working
+                Expert Advisor on MT5.
             </p>
 
             <div class="tags">
-                <span class="tag">MT5 EA</span>
-                <span class="tag">MQL5</span>
-                <span class="tag">Backtested</span>
+
+                <span class="tag">
+                    MT5 EA
+                </span>
+
+                <span class="tag">
+                    MQL5
+                </span>
+
+                <span class="tag">
+                    Backtested
+                </span>
+
             </div>
 
         </div>
@@ -1231,9 +2161,19 @@ footer strong{
             </p>
 
             <div class="tags">
-                <span class="tag">TradingView</span>
-                <span class="tag">Pine Script</span>
-                <span class="tag">MQL5</span>
+
+                <span class="tag">
+                    TradingView
+                </span>
+
+                <span class="tag">
+                    Pine Script
+                </span>
+
+                <span class="tag">
+                    MQL5
+                </span>
+
             </div>
 
         </div>
@@ -1255,9 +2195,19 @@ footer strong{
             </p>
 
             <div class="tags">
-                <span class="tag">MT4→MT5</span>
-                <span class="tag">Code Audit</span>
-                <span class="tag">Optimized</span>
+
+                <span class="tag">
+                    MT4 → MT5
+                </span>
+
+                <span class="tag">
+                    Code Audit
+                </span>
+
+                <span class="tag">
+                    Optimized
+                </span>
+
             </div>
 
         </div>
@@ -1274,26 +2224,339 @@ footer strong{
             </div>
 
             <p class="service-desc">
-                Connect your algo with Telegram alerts, broker APIs,
-                or webhook-based notification systems.
+                Connect your algo with Telegram alerts,
+                broker APIs, or webhook-based notification systems.
             </p>
 
             <div class="tags">
-                <span class="tag">Telegram Bot</span>
-                <span class="tag">Broker API</span>
-                <span class="tag">Webhooks</span>
+
+                <span class="tag">
+                    Telegram Bot
+                </span>
+
+                <span class="tag">
+                    Broker API
+                </span>
+
+                <span class="tag">
+                    Webhooks
+                </span>
+
             </div>
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- PROCESS -->
+<!-- =====================================================
+     FREE EAs
+===================================================== -->
+
+<section class="ea-section" id="EA">
+
+
+    <div class="ea-header">
+
+
+        <div class="section-label">
+            Free Downloads
+        </div>
+
+
+        <h2 class="section-title">
+            Free MT5 Expert Advisors
+        </h2>
+
+
+        <p class="ea-subtitle">
+            Download our top tested .ex5 files for free.
+        </p>
+
+
+    </div>
+
+
+    <div class="ea-grid">
+
+
+        <!-- EA 01 -->
+
+        <div class="ea-card">
+
+            <div class="ea-number">
+                01 / FREE EA
+            </div>
+
+            <div class="ea-name">
+                Scalper Pro EA
+            </div>
+
+            <p class="ea-description">
+                Fast-entry scalping EA designed for
+                short-term market opportunities.
+            </p>
+
+            <a
+                href="EAs/ScalperPro.ex5"
+                download
+                class="ea-download">
+
+                ↓ Download EA
+
+            </a>
+
+        </div>
+
+
+        <!-- EA 02 -->
+
+        <div class="ea-card">
+
+            <div class="ea-number">
+                02 / FREE EA
+            </div>
+
+            <div class="ea-name">
+                EMA Crossover EA
+            </div>
+
+            <p class="ea-description">
+                Automated trading system based on EMA
+                crossover signals and trend direction.
+            </p>
+
+            <a
+                href="EAs/EMACrossover.ex5"
+                download
+                class="ea-download">
+
+                ↓ Download EA
+
+            </a>
+
+        </div>
+
+
+        <!-- EA 03 -->
+
+        <div class="ea-card">
+
+            <div class="ea-number">
+                03 / FREE EA
+            </div>
+
+            <div class="ea-name">
+                RSI Trend EA
+            </div>
+
+            <p class="ea-description">
+                RSI-based automated system designed to
+                identify potential market opportunities.
+            </p>
+
+            <a
+                href="EAs/RSITrend.ex5"
+                download
+                class="ea-download">
+
+                ↓ Download EA
+
+            </a>
+
+        </div>
+
+
+        <!-- EA 04 -->
+
+        <div class="ea-card">
+
+            <div class="ea-number">
+                04 / FREE EA
+            </div>
+
+            <div class="ea-name">
+                Breakout Hunter EA
+            </div>
+
+            <p class="ea-description">
+                Designed to identify and trade potential
+                breakout movements.
+            </p>
+
+            <a
+                href="EAs/BreakoutHunter.ex5"
+                download
+                class="ea-download">
+
+                ↓ Download EA
+
+            </a>
+
+        </div>
+
+
+        <!-- EA 05 -->
+
+        <div class="ea-card">
+
+            <div class="ea-number">
+                05 / FREE EA
+            </div>
+
+            <div class="ea-name">
+                Gold Scalper EA
+            </div>
+
+            <p class="ea-description">
+                Automated strategy designed for short-term
+                XAUUSD trading.
+            </p>
+
+            <a
+                href="EAs/GoldScalper.ex5"
+                download
+                class="ea-download">
+
+                ↓ Download EA
+
+            </a>
+
+        </div>
+
+
+        <!-- EA 06 -->
+
+        <div class="ea-card">
+
+            <div class="ea-number">
+                06 / FREE EA
+            </div>
+
+            <div class="ea-name">
+                Trend Rider EA
+            </div>
+
+            <p class="ea-description">
+                Trend-following EA designed to participate
+                in sustained market movements.
+            </p>
+
+            <a
+                href="EAs/TrendRider.ex5"
+                download
+                class="ea-download">
+
+                ↓ Download EA
+
+            </a>
+
+        </div>
+
+
+        <!-- EA 07 -->
+
+        <div class="ea-card">
+
+            <div class="ea-number">
+                07 / FREE EA
+            </div>
+
+            <div class="ea-name">
+                Bollinger Band EA
+            </div>
+
+            <p class="ea-description">
+                Automated strategy using Bollinger Band
+                based market conditions.
+            </p>
+
+            <a
+                href="EAs/BollingerBand.ex5"
+                download
+                class="ea-download">
+
+                ↓ Download EA
+
+            </a>
+
+        </div>
+
+
+        <!-- EA 08 -->
+
+        <div class="ea-card">
+
+            <div class="ea-number">
+                08 / FREE EA
+            </div>
+
+            <div class="ea-name">
+                Price Action EA
+            </div>
+
+            <p class="ea-description">
+                Automated price-action based trading
+                system for MetaTrader 5.
+            </p>
+
+            <a
+                href="EAs/PriceAction.ex5"
+                download
+                class="ea-download">
+
+                ↓ Download EA
+
+            </a>
+
+        </div>
+
+
+        <!-- EA 09 -->
+
+        <div class="ea-card">
+
+            <div class="ea-number">
+                09 / FREE EA
+            </div>
+
+            <div class="ea-name">
+                Smart Entry EA
+            </div>
+
+            <p class="ea-description">
+                Multi-condition entry system designed
+                to filter potential market setups.
+            </p>
+
+            <a
+                href="EAs/SmartEntry.ex5"
+                download
+                class="ea-download">
+
+                ↓ Download EA
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
 
 <section class="process-section" id="process">
+
 
     <div class="section-head">
 
@@ -1306,8 +2569,8 @@ footer strong{
         </h2>
 
         <p class="section-sub">
-            A clear and transparent process so you always know
-            what's happening.
+            A clear, transparent process so you always
+            know what's happening.
         </p>
 
     </div>
@@ -1315,9 +2578,12 @@ footer strong{
 
     <div class="steps">
 
+
         <div class="step">
 
-            <div class="step-number">01</div>
+            <div class="step-dot">
+                01
+            </div>
 
             <div class="step-title">
                 Strategy Discussion
@@ -1333,7 +2599,9 @@ footer strong{
 
         <div class="step">
 
-            <div class="step-number">02</div>
+            <div class="step-dot">
+                02
+            </div>
 
             <div class="step-title">
                 Scope & Quote
@@ -1349,7 +2617,9 @@ footer strong{
 
         <div class="step">
 
-            <div class="step-number">03</div>
+            <div class="step-dot">
+                03
+            </div>
 
             <div class="step-title">
                 Development
@@ -1357,7 +2627,7 @@ footer strong{
 
             <p class="step-desc">
                 We code your algo in MQL5/Pine Script with
-                clean, documented and production-ready code.
+                clean, documented, production-ready code.
             </p>
 
         </div>
@@ -1365,27 +2635,34 @@ footer strong{
 
         <div class="step">
 
-            <div class="step-number">04</div>
+            <div class="step-dot">
+                04
+            </div>
 
             <div class="step-title">
                 Testing & Delivery
             </div>
 
             <p class="step-desc">
-                Backtesting, demo testing and then full source
-                code delivery with setup support.
+                Backtesting, demo testing and then full
+                source code delivery with setup support.
             </p>
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- TECHNOLOGY -->
+<!-- =====================================================
+     TECH STACK
+===================================================== -->
 
 <section class="section">
+
 
     <div class="section-head">
 
@@ -1398,7 +2675,8 @@ footer strong{
         </h2>
 
         <p class="section-sub">
-            We work with tools used by professional algo traders.
+            We work with the tools that professional
+            algo traders actually use.
         </p>
 
     </div>
@@ -1406,43 +2684,55 @@ footer strong{
 
     <div class="tech-grid">
 
+
         <div class="tech">
             <div class="tech-dot"></div>
             MQL5 / MQL4
         </div>
+
 
         <div class="tech">
             <div class="tech-dot"></div>
             MetaTrader 5
         </div>
 
+
         <div class="tech">
             <div class="tech-dot"></div>
             Pine Script
         </div>
+
 
         <div class="tech">
             <div class="tech-dot"></div>
             TradingView
         </div>
 
+
         <div class="tech">
             <div class="tech-dot"></div>
             Strategy Tester
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- REVIEWS -->
+<!-- =====================================================
+     REVIEWS
+===================================================== -->
 
 <section class="reviews-section" id="reviews">
 
+
     <div class="reviews-head">
 
-        <div class="review-nav">
+
+        <div class="reviews-nav">
+
 
             <div>
 
@@ -1456,42 +2746,60 @@ footer strong{
 
             </div>
 
+
             <div class="review-buttons">
 
-                <button class="review-btn" id="prev">
+                <button
+                    class="review-btn"
+                    onclick="moveReviews(-1)">
+
                     ←
+
                 </button>
 
-                <button class="review-btn" id="next">
+
+                <button
+                    class="review-btn"
+                    onclick="moveReviews(1)">
+
                     →
+
                 </button>
 
             </div>
 
+
         </div>
+
 
     </div>
 
 
     <div class="review-track" id="reviewTrack">
 
+
         <div class="review-inner">
 
 
             <div class="review-card">
 
-                <div class="stars">★★★★★</div>
+                <div class="stars">
+                    ★★★★★
+                </div>
 
                 <p class="review-text">
                     "I had a manual scalping strategy on BANKNIFTY.
                     Astha Algo converted it into a fully automated EA."
                 </p>
 
-                <div class="author">
+                <div class="review-author">
 
-                    <div class="avatar">PA</div>
+                    <div class="avatar">
+                        PA
+                    </div>
 
                     <div>
+
                         <div class="author-name">
                             Parth A.
                         </div>
@@ -1499,6 +2807,7 @@ footer strong{
                         <div class="author-role">
                             Options Trader
                         </div>
+
                     </div>
 
                 </div>
@@ -1508,18 +2817,23 @@ footer strong{
 
             <div class="review-card">
 
-                <div class="stars">★★★★★</div>
+                <div class="stars">
+                    ★★★★★
+                </div>
 
                 <p class="review-text">
                     "Very professional work. They understood my EMA
                     crossover logic perfectly and delivered clean MQL5 code."
                 </p>
 
-                <div class="author">
+                <div class="review-author">
 
-                    <div class="avatar">HA</div>
+                    <div class="avatar">
+                        HA
+                    </div>
 
                     <div>
+
                         <div class="author-name">
                             Harsh A.
                         </div>
@@ -1527,6 +2841,7 @@ footer strong{
                         <div class="author-role">
                             Swing Trader
                         </div>
+
                     </div>
 
                 </div>
@@ -1536,18 +2851,23 @@ footer strong{
 
             <div class="review-card">
 
-                <div class="stars">★★★★★</div>
+                <div class="stars">
+                    ★★★★★
+                </div>
 
                 <p class="review-text">
                     "Got my TradingView Pine Script converted to MT5 EA.
                     Smooth transition and proper risk management."
                 </p>
 
-                <div class="author">
+                <div class="review-author">
 
-                    <div class="avatar">SU</div>
+                    <div class="avatar">
+                        SU
+                    </div>
 
                     <div>
+
                         <div class="author-name">
                             Sunil U.
                         </div>
@@ -1555,6 +2875,7 @@ footer strong{
                         <div class="author-role">
                             Intraday Trader
                         </div>
+
                     </div>
 
                 </div>
@@ -1564,18 +2885,23 @@ footer strong{
 
             <div class="review-card">
 
-                <div class="stars">★★★★★</div>
+                <div class="stars">
+                    ★★★★★
+                </div>
 
                 <p class="review-text">
                     "Quick delivery, great communication and clean code.
                     Custom NIFTY indicator with alerts."
                 </p>
 
-                <div class="author">
+                <div class="review-author">
 
-                    <div class="avatar">AR</div>
+                    <div class="avatar">
+                        AR
+                    </div>
 
                     <div>
+
                         <div class="author-name">
                             Archit R.
                         </div>
@@ -1583,6 +2909,7 @@ footer strong{
                         <div class="author-role">
                             Technical Analyst
                         </div>
+
                     </div>
 
                 </div>
@@ -1592,18 +2919,23 @@ footer strong{
 
             <div class="review-card">
 
-                <div class="stars">★★★★★</div>
+                <div class="stars">
+                    ★★★★★
+                </div>
 
                 <p class="review-text">
-                    "My MT4 EA was broken. They fixed it, migrated it
-                    to MT5 and optimized the logic."
+                    "My MT4 EA was broken. They fixed it, migrated
+                    it to MT5 and optimized the logic."
                 </p>
 
-                <div class="author">
+                <div class="review-author">
 
-                    <div class="avatar">VI</div>
+                    <div class="avatar">
+                        VI
+                    </div>
 
                     <div>
+
                         <div class="author-name">
                             Viren I.
                         </div>
@@ -1611,6 +2943,7 @@ footer strong{
                         <div class="author-role">
                             Algo Trader
                         </div>
+
                     </div>
 
                 </div>
@@ -1620,14 +2953,19 @@ footer strong{
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
 <section class="contact-section" id="contact">
+
 
     <div class="section-head">
 
@@ -1648,11 +2986,14 @@ footer strong{
 
     <div class="contact-grid">
 
-        <div class="contact-info">
+
+        <div class="contact-left">
+
 
             <h3>
                 Talk to us directly
             </h3>
+
 
             <p>
                 Describe your strategy and we'll tell you exactly
@@ -1660,17 +3001,20 @@ footer strong{
             </p>
 
 
-            <div class="contact-list">
+            <div class="contact-rows">
 
-                <a class="contact-item"
-                href="https://t.me/Asthaalgo"
-                target="_blank">
+
+                <a
+                    class="contact-row"
+                    href="https://t.me/Asthaalgo"
+                    target="_blank">
 
                     <div class="contact-icon">
                         ✈️
                     </div>
 
                     <div>
+
                         <div class="contact-label">
                             Telegram
                         </div>
@@ -1678,19 +3022,22 @@ footer strong{
                         <div class="contact-value">
                             @Asthaalgo
                         </div>
+
                     </div>
 
                 </a>
 
 
-                <a class="contact-item"
-                href="mailto:info@asthaalgo.me">
+                <a
+                    class="contact-row"
+                    href="mailto:info@asthaalgo.me">
 
                     <div class="contact-icon">
                         ✉️
                     </div>
 
                     <div>
+
                         <div class="contact-label">
                             Email
                         </div>
@@ -1698,18 +3045,20 @@ footer strong{
                         <div class="contact-value">
                             info@asthaalgo.me
                         </div>
+
                     </div>
 
                 </a>
 
 
-                <div class="contact-item">
+                <div class="contact-row">
 
                     <div class="contact-icon">
                         🕐
                     </div>
 
                     <div>
+
                         <div class="contact-label">
                             Response Time
                         </div>
@@ -1717,16 +3066,20 @@ footer strong{
                         <div class="contact-value">
                             Within 4–6 hours (IST)
                         </div>
+
                     </div>
 
                 </div>
 
+
             </div>
+
 
         </div>
 
 
         <div class="form">
+
 
             <div class="form-row">
 
@@ -1735,9 +3088,9 @@ footer strong{
                 </label>
 
                 <input
+                    id="name"
                     type="text"
-                    placeholder="Full name"
-                    id="name">
+                    placeholder="Full name">
 
             </div>
 
@@ -1749,9 +3102,9 @@ footer strong{
                 </label>
 
                 <input
+                    id="contactInfo"
                     type="text"
-                    placeholder="@username or +91 XXXXX XXXXX"
-                    id="contactInfo">
+                    placeholder="@username or +91 XXXXX XXXXX">
 
             </div>
 
@@ -1801,7 +3154,8 @@ footer strong{
 
                 <textarea
                     id="strategy"
-                    placeholder="e.g. I use EMA crossover with RSI filter on 15min chart..."></textarea>
+                    placeholder="e.g. I use EMA crossover with RSI filter on 15min chart...">
+                </textarea>
 
             </div>
 
@@ -1814,49 +3168,74 @@ footer strong{
 
             </button>
 
+
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
     <p>
-        © 2026 <strong>Astha Algo</strong>
+
+        © 2026
+
+        <strong>
+            Astha Algo
+        </strong>
+
         — Professional Algo Development
+
     </p>
 
+
     <p style="margin-top:6px;">
-        Trading involves risk. We develop tools — not financial advice.
+
+        Trading involves risk.
+        We develop tools — not financial advice.
+
     </p>
 
 </footer>
 
 
-<!-- TELEGRAM FLOAT -->
+<!-- =====================================================
+     TELEGRAM FLOAT
+===================================================== -->
 
 <a
-href="https://t.me/Asthaalgo"
-target="_blank"
-class="telegram"
-title="Contact on Telegram">
+    href="https://t.me/Asthaalgo"
+    target="_blank"
+    class="telegram"
+    title="Contact on Telegram">
 
-<svg
-viewBox="0 0 24 24"
-xmlns="http://www.w3.org/2000/svg">
 
-<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/>
+    <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
 
-</svg>
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/>
+
+    </svg>
+
 
 </a>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
+
 
 /* MOBILE MENU */
 
@@ -1868,6 +3247,7 @@ function toggleMenu(){
 
 }
 
+
 function closeMenu(){
 
     document
@@ -1877,67 +3257,55 @@ function closeMenu(){
 }
 
 
-/* REVIEWS */
+/* =====================================================
+   REVIEWS
+===================================================== */
 
 const reviewTrack =
 document.getElementById('reviewTrack');
 
-const reviewInner =
-reviewTrack.querySelector('.review-inner');
 
-let reviewPosition = 0;
+function moveReviews(direction){
 
-document.getElementById('next').onclick = function(){
+    reviewTrack.scrollBy({
 
-    reviewPosition += 330;
+        left:direction * 320,
 
-    const max =
-    reviewInner.scrollWidth -
-    reviewTrack.clientWidth;
-
-    if(reviewPosition > max){
-        reviewPosition = max;
-    }
-
-    reviewTrack.scrollTo({
-        left:reviewPosition,
         behavior:'smooth'
+
     });
 
-};
+}
 
 
-document.getElementById('prev').onclick = function(){
-
-    reviewPosition -= 330;
-
-    if(reviewPosition < 0){
-        reviewPosition = 0;
-    }
-
-    reviewTrack.scrollTo({
-        left:reviewPosition,
-        behavior:'smooth'
-    });
-
-};
-
-
-/* TELEGRAM FORM */
+/* =====================================================
+   TELEGRAM FORM
+===================================================== */
 
 function sendTelegram(){
 
+
     const name =
-    document.getElementById('name').value.trim();
+    document.getElementById('name')
+    .value
+    .trim();
+
 
     const contact =
-    document.getElementById('contactInfo').value.trim();
+    document.getElementById('contactInfo')
+    .value
+    .trim();
+
 
     const service =
-    document.getElementById('service').value;
+    document.getElementById('service')
+    .value;
+
 
     const strategy =
-    document.getElementById('strategy').value.trim();
+    document.getElementById('strategy')
+    .value
+    .trim();
 
 
     if(!name || !contact || !strategy){
@@ -1947,10 +3315,12 @@ function sendTelegram(){
         );
 
         return;
+
     }
 
 
     const message =
+
 `Hello Astha Algo,
 
 Name: ${name}
@@ -1963,16 +3333,22 @@ Strategy:
 ${strategy}`;
 
 
-    const url =
+    const telegramURL =
+
     'https://t.me/Asthaalgo?text=' +
+
     encodeURIComponent(message);
 
 
-    window.open(url,'_blank');
+    window.open(
+        telegramURL,
+        '_blank'
+    );
 
 }
 
 </script>
+
 
 </body>
 </html>
