@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -29,56 +30,78 @@ html{
 }
 
 :root{
-
     --white:#FFFFFF;
-
     --bg:#FFFFFF;
-
     --bg-light:#F6F8F7;
-
     --card:#F9F9F9;
-
     --text:#000000;
-
     --text-soft:#222222;
-
     --muted:#626862;
-
     --border:#E3E8E5;
-
     --mint:#00FF87;
-
     --mint-dark:#00D96F;
-
     --mint-soft:#EAFFF4;
-
 }
 
 body{
-
     background:var(--bg);
-
     color:var(--text);
-
     font-family:'Inter',sans-serif;
-
     line-height:1.6;
-
     overflow-x:hidden;
-
 }
 
 a{
-
     text-decoration:none;
-
     color:inherit;
-
 }
 
 button{
-
     font-family:inherit;
+}
+
+
+/* =====================================================
+   SCROLL PROGRESS BAR
+===================================================== */
+
+@supports (animation-timeline: scroll()) {
+
+    @keyframes scaleProgress {
+
+        from{
+            transform:scaleX(0);
+        }
+
+        to{
+            transform:scaleX(1);
+        }
+
+    }
+
+    .progress-bar{
+
+        position:fixed;
+
+        top:0;
+
+        left:0;
+
+        right:0;
+
+        height:4px;
+
+        z-index:9999;
+
+        animation:scaleProgress linear;
+
+        animation-timeline:scroll();
+
+        transform-origin:left;
+
+        background-color:#00FF87;
+
+    }
 
 }
 
@@ -124,15 +147,11 @@ nav{
 }
 
 .logo .a{
-
     color:#000;
-
 }
 
 .logo .b{
-
     color:#00B963;
-
 }
 
 .nav-links{
@@ -148,15 +167,11 @@ nav{
 }
 
 .nav-links a{
-
     transition:.2s;
-
 }
 
 .nav-links a:hover{
-
     color:#00A85A;
-
 }
 
 .nav-cta{
@@ -208,9 +223,7 @@ nav{
 }
 
 .mobile-menu{
-
     display:none;
-
 }
 
 
@@ -235,31 +248,21 @@ nav{
     background:
 
         radial-gradient(
-
             circle at 80% 30%,
-
             rgba(0,255,135,.12),
-
             transparent 30%
-
         ),
 
         linear-gradient(
-
             180deg,
-
             #FFFFFF 0%,
-
             #F7FAF8 100%
-
         );
 
 }
 
 .hero-left{
-
     max-width:650px;
-
 }
 
 .hero-tag{
@@ -289,9 +292,7 @@ nav{
 }
 
 .hero-tag span{
-
     color:#00B963;
-
 }
 
 .hero h1{
@@ -309,15 +310,11 @@ nav{
 }
 
 .hero h1 .muted{
-
     color:#A0A7A2;
-
 }
 
 .hero h1 .mint{
-
     color:#00B963;
-
 }
 
 .hero-sub{
@@ -393,18 +390,16 @@ nav{
 }
 
 .btn-secondary:hover{
-
     border-color:var(--mint-dark);
-
 }
 
 
-/* CODE WINDOW */
+/* =====================================================
+   CODE WINDOW
+===================================================== */
 
 .hero-right{
-
     width:100%;
-
 }
 
 .code-window{
@@ -458,33 +453,23 @@ nav{
 }
 
 .c-purple{
-
     color:#B999FF;
-
 }
 
 .c-green{
-
     color:#00FF87;
-
 }
 
 .c-blue{
-
     color:#70B7FF;
-
 }
 
 .c-yellow{
-
     color:#FFE28A;
-
 }
 
 .c-muted{
-
     color:#777;
-
 }
 
 
@@ -576,12 +561,6 @@ nav{
 .section{
 
     padding:95px 6%;
-
-}
-
-.section-light{
-
-    background:var(--bg-light);
 
 }
 
@@ -808,7 +787,6 @@ nav{
     border-color:#00FF87;
 
     box-shadow:
-
         0 12px 35px rgba(0,255,135,.16);
 
 }
@@ -1131,9 +1109,7 @@ nav{
 }
 
 .review-track::-webkit-scrollbar{
-
     display:none;
-
 }
 
 .review-inner{
@@ -1384,9 +1360,7 @@ nav{
 }
 
 .form input,
-
 .form textarea,
-
 .form select{
 
     width:100%;
@@ -1408,9 +1382,7 @@ nav{
 }
 
 .form input:focus,
-
 .form textarea:focus,
-
 .form select:focus{
 
     border-color:#00D96F;
@@ -1455,7 +1427,7 @@ nav{
 
 
 /* =====================================================
-   TELEGRAM
+   TELEGRAM FLOAT
 ===================================================== */
 
 .telegram{
@@ -1482,7 +1454,8 @@ nav{
 
     z-index:999;
 
-    box-shadow:0 8px 25px rgba(34,158,217,.3);
+    box-shadow:
+        0 8px 25px rgba(34,158,217,.3);
 
 }
 
@@ -1562,6 +1535,7 @@ footer strong{
 
 }
 
+
 @media(max-width:700px){
 
     nav{
@@ -1573,7 +1547,6 @@ footer strong{
     }
 
     .nav-links,
-
     .nav-cta{
 
         display:none;
@@ -1663,7 +1636,6 @@ footer strong{
     }
 
     .btn-primary,
-
     .btn-secondary{
 
         width:100%;
@@ -1695,11 +1667,8 @@ footer strong{
     }
 
     .section,
-
     .ea-section,
-
     .process-section,
-
     .contact-section{
 
         padding:70px 5%;
@@ -1714,6 +1683,24 @@ footer strong{
 
 }
 
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    .progress-bar{
+        animation:none;
+        transform:scaleX(1);
+    }
+
+}
+
 </style>
 
 </head>
@@ -1723,13 +1710,28 @@ footer strong{
 
 
 <!-- =====================================================
+     SCROLL PROGRESS BAR
+===================================================== -->
+
+<div class="progress-bar"></div>
+
+
+<!-- =====================================================
      NAVBAR
 ===================================================== -->
 
 <nav>
 
     <div class="logo">
-        <span class="a">Astha</span><span class="b">Algo</span>
+
+        <span class="a">
+            Astha
+        </span>
+
+        <span class="b">
+            Algo
+        </span>
+
     </div>
 
 
@@ -1763,7 +1765,9 @@ footer strong{
     </a>
 
 
-    <div class="hamburger" onclick="toggleMenu()">
+    <div
+        class="hamburger"
+        onclick="toggleMenu()">
 
         <span></span>
         <span></span>
@@ -1780,29 +1784,55 @@ footer strong{
 
 <div class="mobile-menu" id="mobileMenu">
 
-    <a href="#services" onclick="closeMenu()">
+    <a
+        href="#services"
+        onclick="closeMenu()">
+
         Services
+
     </a>
 
-    <a href="#EA" onclick="closeMenu()">
+
+    <a
+        href="#EA"
+        onclick="closeMenu()">
+
         Free EAs
+
     </a>
 
-    <a href="#process" onclick="closeMenu()">
+
+    <a
+        href="#process"
+        onclick="closeMenu()">
+
         Process
+
     </a>
 
-    <a href="#reviews" onclick="closeMenu()">
+
+    <a
+        href="#reviews"
+        onclick="closeMenu()">
+
         Reviews
+
     </a>
 
-    <a href="#contact" onclick="closeMenu()">
+
+    <a
+        href="#contact"
+        onclick="closeMenu()">
+
         Contact
+
     </a>
 
-    <a href="#contact"
-       class="mobile-cta"
-       onclick="closeMenu()">
+
+    <a
+        href="#contact"
+        class="mobile-cta"
+        onclick="closeMenu()">
 
         Hire Us →
 
@@ -1823,7 +1853,9 @@ footer strong{
 
         <div class="hero-tag">
 
-            <span>●</span>
+            <span>
+                ●
+            </span>
 
             Algo Development Studio
 
@@ -1858,6 +1890,7 @@ footer strong{
 
         <div class="hero-buttons">
 
+
             <button
                 class="btn-primary"
                 onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
@@ -1875,6 +1908,7 @@ footer strong{
 
             </button>
 
+
         </div>
 
 
@@ -1890,7 +1924,9 @@ footer strong{
             <div class="window-top">
 
                 <div class="window-dot"></div>
+
                 <div class="window-dot"></div>
+
                 <div class="window-dot"></div>
 
             </div>
@@ -1900,9 +1936,11 @@ footer strong{
 
 
                 <div>
+
                     <span class="c-muted">
                         // you think it...
                     </span>
+
                 </div>
 
 
@@ -2078,7 +2116,6 @@ footer strong{
 
     </div>
 
-
 </section>
 
 
@@ -2086,23 +2123,31 @@ footer strong{
      SERVICES
 ===================================================== -->
 
-<section class="section" id="services">
+<section
+    class="section"
+    id="services">
 
 
     <div class="section-head">
+
 
         <div class="section-label">
             What We Build
         </div>
 
+
         <h2 class="section-title">
             Algo Development Services
         </h2>
 
+
         <p class="section-sub">
-            Every algo is built from scratch based on your exact
-            trading logic — no templates, no shortcuts.
+
+            Every algo is built from scratch based on your
+            exact trading logic — no templates, no shortcuts.
+
         </p>
+
 
     </div>
 
@@ -2121,9 +2166,11 @@ footer strong{
             </div>
 
             <p class="service-desc">
+
                 Share your entry/exit rules, indicators and
                 risk logic — we convert it into a fully working
                 Expert Advisor on MT5.
+
             </p>
 
             <div class="tags">
@@ -2156,8 +2203,10 @@ footer strong{
             </div>
 
             <p class="service-desc">
+
                 Need a custom indicator? We build multi-timeframe
                 indicators with alerts for MT5 and TradingView.
+
             </p>
 
             <div class="tags">
@@ -2190,8 +2239,10 @@ footer strong{
             </div>
 
             <p class="service-desc">
+
                 Already have an MT4 EA? We migrate it to MT5
                 with full compatibility and performance optimization.
+
             </p>
 
             <div class="tags">
@@ -2224,8 +2275,10 @@ footer strong{
             </div>
 
             <p class="service-desc">
+
                 Connect your algo with Telegram alerts,
                 broker APIs, or webhook-based notification systems.
+
             </p>
 
             <div class="tags">
@@ -2257,7 +2310,9 @@ footer strong{
      FREE EAs
 ===================================================== -->
 
-<section class="ea-section" id="EA">
+<section
+    class="ea-section"
+    id="EA">
 
 
     <div class="ea-header">
@@ -2297,8 +2352,10 @@ footer strong{
             </div>
 
             <p class="ea-description">
+
                 Fast-entry scalping EA designed for
                 short-term market opportunities.
+
             </p>
 
             <a
@@ -2326,8 +2383,10 @@ footer strong{
             </div>
 
             <p class="ea-description">
+
                 Automated trading system based on EMA
                 crossover signals and trend direction.
+
             </p>
 
             <a
@@ -2355,8 +2414,10 @@ footer strong{
             </div>
 
             <p class="ea-description">
+
                 RSI-based automated system designed to
                 identify potential market opportunities.
+
             </p>
 
             <a
@@ -2384,8 +2445,10 @@ footer strong{
             </div>
 
             <p class="ea-description">
+
                 Designed to identify and trade potential
                 breakout movements.
+
             </p>
 
             <a
@@ -2413,8 +2476,10 @@ footer strong{
             </div>
 
             <p class="ea-description">
+
                 Automated strategy designed for short-term
                 XAUUSD trading.
+
             </p>
 
             <a
@@ -2442,8 +2507,10 @@ footer strong{
             </div>
 
             <p class="ea-description">
+
                 Trend-following EA designed to participate
                 in sustained market movements.
+
             </p>
 
             <a
@@ -2471,8 +2538,10 @@ footer strong{
             </div>
 
             <p class="ea-description">
+
                 Automated strategy using Bollinger Band
                 based market conditions.
+
             </p>
 
             <a
@@ -2500,8 +2569,10 @@ footer strong{
             </div>
 
             <p class="ea-description">
+
                 Automated price-action based trading
                 system for MetaTrader 5.
+
             </p>
 
             <a
@@ -2529,8 +2600,10 @@ footer strong{
             </div>
 
             <p class="ea-description">
+
                 Multi-condition entry system designed
                 to filter potential market setups.
+
             </p>
 
             <a
@@ -2555,23 +2628,31 @@ footer strong{
      PROCESS
 ===================================================== -->
 
-<section class="process-section" id="process">
+<section
+    class="process-section"
+    id="process">
 
 
     <div class="section-head">
+
 
         <div class="section-label">
             How We Work
         </div>
 
+
         <h2 class="section-title">
             From Idea to Live Algo
         </h2>
 
+
         <p class="section-sub">
+
             A clear, transparent process so you always
             know what's happening.
+
         </p>
+
 
     </div>
 
@@ -2590,8 +2671,10 @@ footer strong{
             </div>
 
             <p class="step-desc">
+
                 You explain your trading logic — indicators,
                 entry/exit conditions and risk management rules.
+
             </p>
 
         </div>
@@ -2608,8 +2691,10 @@ footer strong{
             </div>
 
             <p class="step-desc">
+
                 We define exact scope, timeline and cost.
                 No hidden charges — everything upfront.
+
             </p>
 
         </div>
@@ -2626,8 +2711,10 @@ footer strong{
             </div>
 
             <p class="step-desc">
+
                 We code your algo in MQL5/Pine Script with
                 clean, documented, production-ready code.
+
             </p>
 
         </div>
@@ -2644,8 +2731,10 @@ footer strong{
             </div>
 
             <p class="step-desc">
+
                 Backtesting, demo testing and then full
                 source code delivery with setup support.
+
             </p>
 
         </div>
@@ -2666,18 +2755,24 @@ footer strong{
 
     <div class="section-head">
 
+
         <div class="section-label">
             Technologies
         </div>
+
 
         <h2 class="section-title">
             Our Tech Stack
         </h2>
 
+
         <p class="section-sub">
+
             We work with the tools that professional
             algo traders actually use.
+
         </p>
+
 
     </div>
 
@@ -2686,32 +2781,47 @@ footer strong{
 
 
         <div class="tech">
+
             <div class="tech-dot"></div>
+
             MQL5 / MQL4
+
         </div>
 
 
         <div class="tech">
+
             <div class="tech-dot"></div>
+
             MetaTrader 5
+
         </div>
 
 
         <div class="tech">
+
             <div class="tech-dot"></div>
+
             Pine Script
+
         </div>
 
 
         <div class="tech">
+
             <div class="tech-dot"></div>
+
             TradingView
+
         </div>
 
 
         <div class="tech">
+
             <div class="tech-dot"></div>
+
             Strategy Tester
+
         </div>
 
 
@@ -2725,7 +2835,9 @@ footer strong{
      REVIEWS
 ===================================================== -->
 
-<section class="reviews-section" id="reviews">
+<section
+    class="reviews-section"
+    id="reviews">
 
 
     <div class="reviews-head">
@@ -2740,6 +2852,7 @@ footer strong{
                     Client Reviews
                 </div>
 
+
                 <h2 class="section-title">
                     What Our Clients Say
                 </h2>
@@ -2748,6 +2861,7 @@ footer strong{
 
 
             <div class="review-buttons">
+
 
                 <button
                     class="review-btn"
@@ -2766,6 +2880,7 @@ footer strong{
 
                 </button>
 
+
             </div>
 
 
@@ -2775,7 +2890,9 @@ footer strong{
     </div>
 
 
-    <div class="review-track" id="reviewTrack">
+    <div
+        class="review-track"
+        id="reviewTrack">
 
 
         <div class="review-inner">
@@ -2788,8 +2905,10 @@ footer strong{
                 </div>
 
                 <p class="review-text">
+
                     "I had a manual scalping strategy on BANKNIFTY.
                     Astha Algo converted it into a fully automated EA."
+
                 </p>
 
                 <div class="review-author">
@@ -2822,8 +2941,10 @@ footer strong{
                 </div>
 
                 <p class="review-text">
+
                     "Very professional work. They understood my EMA
                     crossover logic perfectly and delivered clean MQL5 code."
+
                 </p>
 
                 <div class="review-author">
@@ -2856,8 +2977,10 @@ footer strong{
                 </div>
 
                 <p class="review-text">
+
                     "Got my TradingView Pine Script converted to MT5 EA.
                     Smooth transition and proper risk management."
+
                 </p>
 
                 <div class="review-author">
@@ -2890,8 +3013,10 @@ footer strong{
                 </div>
 
                 <p class="review-text">
+
                     "Quick delivery, great communication and clean code.
                     Custom NIFTY indicator with alerts."
+
                 </p>
 
                 <div class="review-author">
@@ -2924,8 +3049,10 @@ footer strong{
                 </div>
 
                 <p class="review-text">
+
                     "My MT4 EA was broken. They fixed it, migrated
                     it to MT5 and optimized the logic."
+
                 </p>
 
                 <div class="review-author">
@@ -2964,22 +3091,31 @@ footer strong{
      CONTACT
 ===================================================== -->
 
-<section class="contact-section" id="contact">
+<section
+    class="contact-section"
+    id="contact">
 
 
     <div class="section-head">
+
 
         <div class="section-label">
             Get In Touch
         </div>
 
+
         <h2 class="section-title">
             Let's Automate Your Strategy
         </h2>
 
+
         <p class="section-sub">
-            Tell us about your trading logic — free consultation and quote.
+
+            Tell us about your trading logic —
+            free consultation and quote.
+
         </p>
+
 
     </div>
 
@@ -2996,8 +3132,10 @@ footer strong{
 
 
             <p>
-                Describe your strategy and we'll tell you exactly
-                how we can automate it.
+
+                Describe your strategy and we'll tell you
+                exactly how we can automate it.
+
             </p>
 
 
@@ -3117,8 +3255,13 @@ footer strong{
 
                 <select id="service">
 
-                    <option value="" disabled selected>
+                    <option
+                        value=""
+                        disabled
+                        selected>
+
                         Select a service
+
                     </option>
 
                     <option>
@@ -3154,8 +3297,7 @@ footer strong{
 
                 <textarea
                     id="strategy"
-                    placeholder="e.g. I use EMA crossover with RSI filter on 15min chart...">
-                </textarea>
+                    placeholder="e.g. I use EMA crossover with RSI filter on 15min chart..."></textarea>
 
             </div>
 
@@ -3242,8 +3384,8 @@ footer strong{
 function toggleMenu(){
 
     document
-    .getElementById('mobileMenu')
-    .classList.toggle('open');
+        .getElementById('mobileMenu')
+        .classList.toggle('open');
 
 }
 
@@ -3251,8 +3393,8 @@ function toggleMenu(){
 function closeMenu(){
 
     document
-    .getElementById('mobileMenu')
-    .classList.remove('open');
+        .getElementById('mobileMenu')
+        .classList.remove('open');
 
 }
 
@@ -3262,7 +3404,7 @@ function closeMenu(){
 ===================================================== */
 
 const reviewTrack =
-document.getElementById('reviewTrack');
+    document.getElementById('reviewTrack');
 
 
 function moveReviews(direction){
@@ -3286,26 +3428,30 @@ function sendTelegram(){
 
 
     const name =
-    document.getElementById('name')
-    .value
-    .trim();
+        document
+        .getElementById('name')
+        .value
+        .trim();
 
 
     const contact =
-    document.getElementById('contactInfo')
-    .value
-    .trim();
+        document
+        .getElementById('contactInfo')
+        .value
+        .trim();
 
 
     const service =
-    document.getElementById('service')
-    .value;
+        document
+        .getElementById('service')
+        .value;
 
 
     const strategy =
-    document.getElementById('strategy')
-    .value
-    .trim();
+        document
+        .getElementById('strategy')
+        .value
+        .trim();
 
 
     if(!name || !contact || !strategy){
@@ -3335,9 +3481,9 @@ ${strategy}`;
 
     const telegramURL =
 
-    'https://t.me/Asthaalgo?text=' +
+        'https://t.me/Asthaalgo?text=' +
 
-    encodeURIComponent(message);
+        encodeURIComponent(message);
 
 
     window.open(
@@ -3347,8 +3493,10 @@ ${strategy}`;
 
 }
 
+
 </script>
 
 
 </body>
+
 </html>
